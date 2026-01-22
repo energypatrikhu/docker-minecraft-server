@@ -58,13 +58,15 @@ RUN curl -fsSL ${MC_HELPER_BASE_URL}/mc-image-helper-${MC_HELPER_VERSION}.tgz \
     && ln -s /usr/share/mc-image-helper-${MC_HELPER_VERSION}/ /usr/share/mc-image-helper \
     && ln -s /usr/share/mc-image-helper/bin/mc-image-helper /usr/bin
 
+USER        container
+ENV         USER=container HOME=/home/container
 VOLUME ["/home/container"]
 WORKDIR /home/container
 
 STOPSIGNAL SIGTERM
 
 # End user MUST set EULA and change RCON_PASSWORD
-ENV TYPE=VANILLA VERSION=LATEST EULA="" UID=1000 GID=1000 LC_ALL=en_US.UTF-8
+ENV TYPE=VANILLA VERSION=LATEST EULA="" UID=988 GID=988 LC_ALL=en_US.UTF-8
 
 COPY --chmod=755 scripts/start* /image/scripts/
 
@@ -83,7 +85,10 @@ RUN curl -fsSL -o /image/Log4jPatcher.jar https://github.com/CreeperHost/Log4jPa
 
 RUN dos2unix /image/scripts/start* /image/scripts/auto/*
 
-ENTRYPOINT [ "/image/scripts/start" ]
+COPY ./entrypoint.sh /entrypoint.sh
+
+CMD ["/bin/bash", "/entrypoint.sh"]
+
 HEALTHCHECK --start-period=2m --retries=2 --interval=30s CMD mc-health
 
 ARG BUILDTIME=local
