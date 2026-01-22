@@ -10,7 +10,7 @@ services:
     ports:
       - "25565:25565"
     volumes:
-      - mc-data:/data
+      - mc-data:/home/container
     restart: unless-stopped
 volumes:
   mc-data: {}

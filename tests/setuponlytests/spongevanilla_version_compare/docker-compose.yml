@@ -10,4 +10,4 @@ services:
       DIFFICULTY: "0"
 
     volumes:
-      - ./data:/data
+      - ./data:/home/container

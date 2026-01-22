@@ -14,7 +14,7 @@ logError "Magma does not support $VERSION (expected 1.21.x)"
 exit 1
 fi
 
-if ! SERVER=$(get --output-filename --skip-up-to-date --output /data "https://magmafoundation.org/api/versions/${MAGMA_VERSION}/download"); then
+if ! SERVER=$(get --output-filename --skip-up-to-date --output /home/container "https://magmafoundation.org/api/versions/${MAGMA_VERSION}/download"); then
   logError "Failed to download Magma server jar for $MAGMA_VERSION"
   exit 1
 fi

@@ -1,5 +1,5 @@
 {
-  "file": "/data/settings.yml",
+  "file": "/home/container/settings.yml",
   "ops": [
     {
       "$set": {

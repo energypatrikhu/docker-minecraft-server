@@ -11,7 +11,7 @@ services:
       CUSTOM_SERVER: /servers/fake.jar
       VERSION: 1.18.1
     volumes:
-      - ./data:/data
+      - ./data:/home/container
       - ./vt-datapacks.json:/config/vt-datapacks.json:ro
       - ./vt-craftingtweaks.json:/config/vt-craftingtweaks.json:ro
       # the following are only used to speed up test execution

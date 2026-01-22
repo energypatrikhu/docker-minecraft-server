@@ -38,7 +38,7 @@ if ! filename=$(
   exit 1
 fi
 
-SERVER="/data/$filename"
+SERVER="/home/container/$filename"
 
 if ! get --skip-existing --log-progress-each -o "${SERVER}" "${leafApiUrl}/versions/${VERSION}/builds/${LEAF_BUILD}/downloads/${filename}"; then
   logError "Failed to download"

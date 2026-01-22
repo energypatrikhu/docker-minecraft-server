@@ -10,7 +10,7 @@ services:
       # Refer to https://docker-minecraft-server.readthedocs.io/en/latest/types-and-platforms/mod-platforms/auto-curseforge/#api-key
       CF_API_KEY: ${CF_API_KEY}
       CF_PAGE_URL: https://www.curseforge.com/minecraft/modpacks/all-of-fabric-7
-#      CF_FILENAME_MATCHER: 1.2.2
+      #      CF_FILENAME_MATCHER: 1.2.2
       CF_OVERRIDES_EXCLUSIONS: |
         mods/iris*.jar
         mods/sodium*.jar
@@ -18,8 +18,7 @@ services:
     ports:
       - "25565:25565"
     volumes:
-      - mc-data:/data
+      - mc-data:/home/container
 
 volumes:
   mc-data: {}
-

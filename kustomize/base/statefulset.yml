@@ -24,7 +24,7 @@ spec:
           stdin: true
           tty: true
           volumeMounts:
-            - mountPath: /data
+            - mountPath: /home/container
               name: data
           resources:
             requests:

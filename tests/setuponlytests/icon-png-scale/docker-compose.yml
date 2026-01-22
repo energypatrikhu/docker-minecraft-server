@@ -4,13 +4,7 @@ services:
     volumes:
       - ./web:/usr/share/nginx/html
     healthcheck:
-      test:
-        [
-          "CMD",
-          "curl",
-          "--fail",
-          "http://localhost/4737386_minecraft_squircle_icon.png",
-        ]
+      test: ["CMD", "curl", "--fail", "http://localhost/4737386_minecraft_squircle_icon.png"]
       interval: 3s
       timeout: 5s
       retries: 3
@@ -28,5 +22,5 @@ services:
       CUSTOM_SERVER: /servers/fake.jar
       VERSION: 1.18.1
     volumes:
-      - ./data:/data
+      - ./data:/home/container
       - ./fake.jar:/servers/fake.jar

@@ -4,7 +4,7 @@ To troubleshoot just the command-line used to start the Minecraft server, set th
 
 To troubleshoot any issues with memory allocation reported by the JVM, set the environment variable `DEBUG_MEMORY` to `true`.
 
-If you are experiencing any issues with the "Changing ownership of /data" step, that can be disabled by setting `SKIP_CHOWN_DATA` to `true`.
+If you are experiencing any issues with the "Changing ownership of /home/container" step, that can be disabled by setting `SKIP_CHOWN_DATA` to `true`.
 
 To confirm the image version that has been pulled, use the following command, replacing `itzg/minecraft-server` as needed for specific image tags:
 

@@ -11,7 +11,7 @@ services:
         plugins/LuckPerms</shared-configs/LuckPerms/
       DEBUG: true
     volumes:
-      - data:/data
+      - data:/home/container
       - ./shared-configs:/shared-configs:ro
     ports:
       - "25565:25565"

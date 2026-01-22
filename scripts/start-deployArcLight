@@ -29,7 +29,7 @@ if [[ $downloadUrl = null ]]; then
 fi
 
 log "Downloading Arclight from $downloadUrl"
-if ! SERVER=$(get --skip-existing --output-filename -o /data "$downloadUrl"); then
+if ! SERVER=$(get --skip-existing --output-filename -o /home/container "$downloadUrl"); then
   logError "Arclight jar from $downloadUrl"
   exit 1
 fi

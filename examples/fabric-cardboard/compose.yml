@@ -14,7 +14,7 @@ services:
         cardboard:beta
       USES_PLUGINS: true
     volumes:
-      - mc-data:/data
+      - mc-data:/home/container
       - ./plugins:/plugins:ro
 volumes:
   mc-data:

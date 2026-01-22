@@ -25,5 +25,5 @@ services:
       DEBUG: "true"
     volumes:
       - ./packs:/packs
-      - ./data:/data
+      - ./data:/home/container
       - ./fake.jar:/servers/fake.jar

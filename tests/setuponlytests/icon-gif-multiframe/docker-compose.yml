@@ -4,8 +4,7 @@ services:
     volumes:
       - ./web:/usr/share/nginx/html
     healthcheck:
-      test:
-        ["CMD", "curl", "--fail", "http://localhost/motion-tween-example.gif"]
+      test: ["CMD", "curl", "--fail", "http://localhost/motion-tween-example.gif"]
       interval: 3s
       timeout: 5s
       retries: 3
@@ -23,5 +22,5 @@ services:
       CUSTOM_SERVER: /servers/fake.jar
       VERSION: 1.18.1
     volumes:
-      - ./data:/data
+      - ./data:/home/container
       - ./fake.jar:/servers/fake.jar

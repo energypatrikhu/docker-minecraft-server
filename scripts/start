@@ -39,9 +39,9 @@ if ! isTrue "${SKIP_SUDO:-false}" && [ "$(id -u)" = 0 ]; then
     fi
   fi
 
-  if isFalse "${SKIP_CHOWN_DATA}" && [[ $(stat -c "%u" /data) != "$UID" ]]; then
-    log "Changing ownership of /data to $UID ..."
-    chown -R ${runAsUser}:${runAsGroup} /data
+  if isFalse "${SKIP_CHOWN_DATA}" && [[ $(stat -c "%u" /home/container) != "$UID" ]]; then
+    log "Changing ownership of /home/container to $UID ..."
+    chown -R ${runAsUser}:${runAsGroup} /home/container
   fi
 
   if [[ ${SKIP_NSSWITCH_CONF^^} != TRUE ]]; then

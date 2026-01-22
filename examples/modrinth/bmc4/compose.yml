@@ -13,8 +13,8 @@ services:
     ports:
       - "25565:25565"
     volumes:
-      - mc-data:/data
+      - mc-data:/home/container
       # or use a host directory binding
-#      - ./data:/data
+#      - ./data:/home/container
 volumes:
   mc-data:

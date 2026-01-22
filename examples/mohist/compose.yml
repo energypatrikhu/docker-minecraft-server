@@ -9,7 +9,7 @@ services:
       VERSION: 1.12.2
       MOHIST_BUILD: 347
     volumes:
-      - data:/data
+      - data:/home/container
 
 volumes:
   data: {}

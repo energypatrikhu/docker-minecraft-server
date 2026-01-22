@@ -6,7 +6,7 @@ isDebugging && set -x
 
 set -eo pipefail
 
-spigotBuildLog="/data/spigot_build.log"
+spigotBuildLog="/home/container/spigot_build.log"
 
 function handleFailedSpigotBuild {
   logError "Failed to build Spigot"
@@ -16,7 +16,7 @@ function handleFailedSpigotBuild {
 
 
 function buildSpigotFromSource {
-  local tempDir="/data/temp"
+  local tempDir="/home/container/temp"
 
   if [[ ${TYPE^^} = *BUKKIT ]] && ! versionLessThan "1.14"; then
     logError "Craftbukkit build is only supported for versions less than 1.14"
@@ -48,12 +48,12 @@ function buildSpigotFromSource {
 
   case ${TYPE^^} in
     SPIGOT)
-      if ! mv spigot-*.jar "/data/${SERVER}"; then
+      if ! mv spigot-*.jar "/home/container/${SERVER}"; then
         handleFailedSpigotBuild
       fi
       ;;
     *BUKKIT)
-      if ! mv craftbukkit-*.jar "/data/${SERVER}"; then
+      if ! mv craftbukkit-*.jar "/home/container/${SERVER}"; then
         handleFailedSpigotBuild
       fi
       ;;
@@ -61,13 +61,13 @@ function buildSpigotFromSource {
 
   log "Cleaning up"
   rm -rf ${tempDir}
-  cd /data
+  cd /home/container
 }
 
 function downloadSpigot {
   local match
   local getBukkitBaseUrl="https://getbukkit.org/download/"
-  local getBukkitSpigotUrl="${getBukkitBaseUrl}spigot" 
+  local getBukkitSpigotUrl="${getBukkitBaseUrl}spigot"
   case "$TYPE" in
     *BUKKIT|*bukkit)
       match="CraftBukkit"
@@ -94,7 +94,7 @@ function downloadSpigot {
 
   log "Downloading $match from $downloadUrl if missing ..."
 
-  if ! SERVER=$(get -o /data --skip-existing --output-filename "$downloadUrl"); then
+  if ! SERVER=$(get -o /home/container --skip-existing --output-filename "$downloadUrl"); then
 
     cat <<EOF
 

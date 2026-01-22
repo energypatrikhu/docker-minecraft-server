@@ -25,7 +25,7 @@ services:
       CF_FORCE_SYNCHRONIZE: "true"
       MEMORY: 4G
     volumes:
-      - mc-data:/data
+      - mc-data:/home/container
       - C:\Users\geoff\git\mc-image-helper\build\install\mc-image-helper:/usr/share/mc-image-helper:ro
 
 volumes:

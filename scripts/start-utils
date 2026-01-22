@@ -41,7 +41,7 @@ function get_major_version() {
 
 function isPercentage() {
   local value=$1
-  
+
   [[ $value =~ ^[0-9]+(\.[0-9]+)?\s*%$ ]]
 }
 
@@ -206,7 +206,7 @@ function isNumeric() {
 function isNumericElseSetToDefault() {
   local var_name="$1"
   local default_value="$2"
-  
+
   if ! isNumeric ${!var_name} ; then
     eval "$var_name=$default_value"
     export "$var_name"
@@ -295,8 +295,8 @@ function compare_version() {
   elif [[ $left_version == b* ]]; then
     left_version=${left_version:1}
     left_version_channel=2
-  else 
-    left_version_channel=3    
+  else
+    left_version_channel=3
   fi
   if [[ $right_version == a* ]]; then
     right_version=${right_version:1}
@@ -304,8 +304,8 @@ function compare_version() {
   elif [[ $right_version == b* ]]; then
     right_version=${right_version:1}
     right_version_channel=2
-  else 
-    right_version_channel=3    
+  else
+    right_version_channel=3
   fi
 
   if [[ $comparison == "lt" && $left_version_channel < $right_version_channel ]]; then
@@ -382,8 +382,8 @@ function writeEula() {
   if ! echo "# Generated via Docker
 # $(date)
 eula=${EULA,,}
-" >/data/eula.txt; then
-    logError "Unable to write eula to /data. Please make sure attached directory is writable by uid=${UID}"
+" >/home/container/eula.txt; then
+    logError "Unable to write eula to /home/container. Please make sure attached directory is writable by uid=${UID}"
     exit 2
   fi
 }

@@ -7,9 +7,9 @@ A [Fabric server](https://fabricmc.net/) can be automatically downloaded, upgrad
     ```shell
     docker run -d --pull=always -e EULA=TRUE -e TYPE=FABRIC -p 25565:25565 itzg/minecraft-server
     ```
-    
+
     In a compose file service:
-    
+
     ```yaml
     environment:
       EULA: TRUE
@@ -30,9 +30,9 @@ A specific loader or launcher version other than the latest can be requested usi
         -e FABRIC_LAUNCHER_VERSION=0.10.2 \
         -e FABRIC_LOADER_VERSION=0.13.1
     ```
-    
+
     In a compose file service:
-    
+
     ```yaml
     environment:
       EULA: TRUE
@@ -57,9 +57,9 @@ As [mentioned on the Fabric download page](https://fabricmc.net/use/installer/),
 
 ## Alternate launcher
 
-If you wish to use an alternative launcher you can:  
+If you wish to use an alternative launcher you can:
 
-- Provide the path to a custom launcher jar available to the container with `FABRIC_LAUNCHER`, relative to `/data` (such as `-e FABRIC_LAUNCHER=fabric-server-custom.jar`)
+- Provide the path to a custom launcher jar available to the container with `FABRIC_LAUNCHER`, relative to `/home/container` (such as `-e FABRIC_LAUNCHER=fabric-server-custom.jar`)
 - Provide the URL to a custom launcher jar with `FABRIC_LAUNCHER_URL` (such as `-e FABRIC_LAUNCHER_URL=http://HOST/fabric-server-custom.jar`)
 
 ## Force re-install
