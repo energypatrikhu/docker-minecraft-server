@@ -24,7 +24,7 @@ docker run -d --pull=always \
 
 ## Running as alternate user/group ID
 
-By default, the container will switch to and run the Minecraft server as user ID 1000 and group ID 1000; however, that can be changed by setting the environment variables `UID` and `GID`.
+By default, the container will switch to and run the Minecraft server as user ID 988 and group ID 988; however, that can be changed by setting the environment variables `UID` and `GID`.
 
 The startup will also skip user switching if the `--user`/`-u` argument is passed to `docker run` or `user` is set on the compose service.
 
@@ -101,7 +101,7 @@ You can customize various aspects of the logging behavior using environment vari
   -e ROLLING_LOG_FILE_PATTERN="logs/archive/%d{yyyy-MM-dd}-%i.log.gz"
   ```
 
-- `ROLLING_LOG_MAX_FILES` : Maximum number of archived log files to keep (default: `1000`)
+- `ROLLING_LOG_MAX_FILES` : Maximum number of archived log files to keep (default: `988`)
   ```
   -e ROLLING_LOG_MAX_FILES=30
   ```

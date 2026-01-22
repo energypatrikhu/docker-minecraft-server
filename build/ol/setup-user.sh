@@ -1,2 +1,2 @@
-groupadd --gid 1000 minecraft
-useradd --system --shell /bin/false --uid 1000 -g minecraft --home /home/container minecraft
+groupadd --gid 988 minecraft
+useradd --system --shell /bin/false --uid 988 -g minecraft --home /home/container minecraft

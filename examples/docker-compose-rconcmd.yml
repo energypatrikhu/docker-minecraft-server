@@ -23,7 +23,7 @@ services:
         /gamerule doFireTick false
         /team add New
         /team add Old
-        /chunky radius 1000
+        /chunky radius 988
         /chunky start
       RCON_CMDS_ON_CONNECT: |-
         /team join New @a[team=]

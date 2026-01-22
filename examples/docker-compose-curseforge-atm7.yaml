@@ -114,7 +114,7 @@ services:
       # LOG_LEVEL: Log level (default: info)                             #
       # LOG_CONSOLE_FORMAT: Console output format (docker logs)          #
       # LOG_FILE_FORMAT: File log format (logs/latest.log)               #
-      # ROLLING_LOG_MAX_FILES: Max archived files (default: 1000)        #
+      # ROLLING_LOG_MAX_FILES: Max archived files (default: 988)        #
       #                                                                  #
       # Example: Add full timestamp to logs                              #
       # LOG_CONSOLE_FORMAT: "[%d{yyyy-MM-dd HH:mm:ss}] [%t/%level]: %msg%n"

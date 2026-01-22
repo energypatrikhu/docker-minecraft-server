@@ -4,8 +4,8 @@
 . "$(dirname "$0")/start-utils"
 
 # The Dockerfile ENVs take precedence here, but defaulting for testing consistency
-: "${UID:=1000}"
-: "${GID:=1000}"
+: "${UID:=988}"
+: "${GID:=988}"
 : "${SKIP_CHOWN_DATA:=false}"
 
 umask "${UMASK:=0002}"
