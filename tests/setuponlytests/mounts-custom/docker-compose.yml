@@ -14,6 +14,6 @@ services:
       COPY_CONFIG_SRC: /custom/config
       COPY_CONFIG_DEST: /home/container/custom-config
     volumes:
-      - ./data:/home/container
+      - ./home/container:/home/container
       - ./custom:/custom
       - ./fake.jar:/servers/fake.jar

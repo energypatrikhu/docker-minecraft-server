@@ -62,7 +62,7 @@ services:
       RCON_PASSWORD_FILE: /run/secrets/rcon_pass
     volumes:
       # attach the relative directory 'data' to the container's /home/container path
-      - ./data:/home/container
+      - ./home/container:/home/container
 
 secrets:
   rcon_pass:

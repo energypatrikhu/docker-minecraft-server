@@ -22,7 +22,7 @@ services:
       - "25565:25565"
       - "19132:19132/udp"
     volumes:
-      - ./data:/home/container
+      - ./home/container:/home/container
 ```
 
 [Source](https://github.com/itzg/docker-minecraft-server/blob/master/examples/geyser/docker-compose.yml)
@@ -84,7 +84,7 @@ With [lazymc-docker-proxy](https://github.com/joesturge/lazymc-docker-proxy) you
 # See the readme for more information.
 #
 # Please ensure that the subnet falls within the private CIDRs:
-# https://datatracker.ietf.org/doc/html/rfc1918#section-3
+# https://home/containertracker.ietf.org/doc/html/rfc1918#section-3
 #
 # And that it is not in use by anything else.
 networks:
@@ -174,7 +174,7 @@ services:
       TYPE: PAPER
       MEMORY: 4G
     volumes:
-      - ./data:/home/container
+      - ./home/container:/home/container
     labels:
       - lazytainer.group=minecraft
     depends_on:

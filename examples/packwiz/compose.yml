@@ -11,6 +11,6 @@ services:
       QUILT_LOADER_VERSION: "0.17.0"
       PACKWIZ_URL: https://raw.githubusercontent.com/packwiz/packwiz-example-pack/refs/heads/v1/pack.toml
     volumes:
-      - ./data:/home/container
+      - ./home/container:/home/container
     ports:
       - "25565:25565"

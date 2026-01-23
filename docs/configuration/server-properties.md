@@ -272,7 +272,7 @@ Using `RCON_PASSWORD_FILE` is the recommended method for managing sensitive data
           RCON_PASSWORD_FILE: /run/secrets/rcon_pass # Points to the path where the secret is mounted
         volumes:
           # attach the relative directory 'data' to the container's /home/container path
-          - ./data:/home/container
+          - ./home/container:/home/container
         secrets:
           - rcon_pass
 
@@ -388,7 +388,7 @@ where the default is "world":
 > **NOTE:** if running multiple containers be sure to either specify a different `-v` host directory for each
 `LEVEL` in use or don't use `-v` and the container's filesystem will keep things encapsulated.
 
-> **INFO** Refer to the [data directory](../data-directory.md) section for a visual description of where the `$LEVEL` directory is situated.
+> **INFO** Refer to the [data directory](../home/container-directory.md) section for a visual description of where the `$LEVEL` directory is situated.
 
 ### Server port
 

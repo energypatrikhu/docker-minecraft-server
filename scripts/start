@@ -14,14 +14,14 @@ umask "${UMASK:=0002}"
 rm -f "$HOME/.rcon-cli.env"
 
 if ! isTrue "${SKIP_SUDO:-false}" && [ "$(id -u)" = 0 ]; then
-  runAsUser=minecraft
-  runAsGroup=minecraft
+  runAsUser=container
+  runAsGroup=container
 
   if [[ -v UID ]]; then
     if [[ $UID != 0 ]]; then
-      if [[ $UID != $(id -u minecraft) ]]; then
-        log "Changing uid of minecraft to $UID"
-        usermod -u $UID minecraft
+      if [[ $UID != $(id -u container) ]]; then
+        log "Changing uid of container to $UID"
+        usermod -u $UID container
       fi
     else
       runAsUser=root
@@ -30,9 +30,9 @@ if ! isTrue "${SKIP_SUDO:-false}" && [ "$(id -u)" = 0 ]; then
 
   if [[ -v GID ]]; then
     if [[ $GID != 0 ]]; then
-      if [[ $GID != $(id -g minecraft) ]]; then
-        log "Changing gid of minecraft to $GID"
-        groupmod -o -g "$GID" minecraft
+      if [[ $GID != $(id -g container) ]]; then
+        log "Changing gid of container to $GID"
+        groupmod -o -g "$GID" container
       fi
     else
       runAsGroup=root

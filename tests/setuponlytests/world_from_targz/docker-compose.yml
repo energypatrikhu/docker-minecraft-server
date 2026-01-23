@@ -9,4 +9,4 @@ services:
       WORLD: /worlds/world-for-testing.tar.gz
     volumes:
       - ./worlds:/worlds:ro
-      - ./data:/home/container
+      - ./home/container:/home/container

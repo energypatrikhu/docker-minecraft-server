@@ -22,4 +22,4 @@ services:
       MEMORY: 6G
     volumes:
       # attach the relative directory 'data' to the container's /home/container path
-      - ./data:/home/container
+      - ./home/container:/home/container

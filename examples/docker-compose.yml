@@ -6,7 +6,7 @@ services:
     ports:
       - "25565:25565"
     volumes:
-      - ./data:/home/container
+      - ./home/container:/home/container
     environment:
       EULA: "TRUE"
     restart: unless-stopped

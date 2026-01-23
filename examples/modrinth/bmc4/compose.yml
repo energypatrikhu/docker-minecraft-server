@@ -15,6 +15,6 @@ services:
     volumes:
       - mc-data:/home/container
       # or use a host directory binding
-#      - ./data:/home/container
+#      - ./home/container:/home/container
 volumes:
   mc-data:

@@ -8,4 +8,4 @@ services:
       MODRINTH_PROJECTS: "coreprotect"
       MODRINTH_PROJECTS_DEFAULT_VERSION_TYPE: "release"
     volumes:
-      - ./data:/home/container
+      - ./home/container:/home/container

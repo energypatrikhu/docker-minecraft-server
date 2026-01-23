@@ -6,4 +6,4 @@ services:
       EULA: "TRUE"
       TYPE: NANOLIMBO
     volumes:
-      - ./data:/home/container
+      - ./home/container:/home/container

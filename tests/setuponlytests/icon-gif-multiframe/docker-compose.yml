@@ -22,5 +22,5 @@ services:
       CUSTOM_SERVER: /servers/fake.jar
       VERSION: 1.18.1
     volumes:
-      - ./data:/home/container
+      - ./home/container:/home/container
       - ./fake.jar:/servers/fake.jar

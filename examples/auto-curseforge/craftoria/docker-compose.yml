@@ -17,7 +17,7 @@ services:
       MEMORY: 8G
     volumes:
       # Use managed volume by default, but can change to a relative path like
-      # ./data:/home/container
+      # ./home/container:/home/container
       # to use a host directory
       - mc-data:/home/container
 volumes:

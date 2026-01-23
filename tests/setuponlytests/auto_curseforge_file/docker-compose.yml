@@ -9,7 +9,7 @@ services:
       CF_PAGE_URL: https://www.curseforge.com/minecraft/modpacks/the-pixelmon-modpack/files/5954570
       DEBUG: true
     volumes:
-      - ./data:/home/container
+      - ./home/container:/home/container
     secrets:
       - cf_api_key
 secrets:

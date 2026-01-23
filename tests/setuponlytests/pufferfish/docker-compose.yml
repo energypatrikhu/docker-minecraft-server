@@ -8,4 +8,4 @@ services:
       TYPE: PUFFERFISH
       VERSION: ${MINECRAFT_VERSION:-LATEST}
     volumes:
-      - ./data:/home/container
+      - ./home/container:/home/container

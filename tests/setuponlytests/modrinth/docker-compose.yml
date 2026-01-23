@@ -8,4 +8,4 @@ services:
       VERSION: 1.21.4
       MODRINTH_PROJECTS: fabric-api,cloth-config
     volumes:
-      - ./data:/home/container
+      - ./home/container:/home/container
