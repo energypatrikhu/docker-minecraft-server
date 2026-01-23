@@ -12,6 +12,7 @@ Pterodactyl Panel eggs for this image can be found in [the eggs directory](eggs)
 - [NeoForge](eggs/egg-itzg-neoforge.json)
 - [CurseForge](eggs/egg-itzg-curseforge.json)
 - [Modrinth](eggs/egg-itzg-modrinth.json)
+- [FTB](eggs/egg-itzg-ftb.json)
 
 > **Note:** The eggs contain the minimal required environment variables. For a complete list of all supported environment variables, please refer to the [documentation](https://docker-minecraft-server.readthedocs.io/).
 
