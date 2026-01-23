@@ -12,6 +12,7 @@ on:
       - "examples/**"
       - "notes/**"
       - "kustomize/**"
+      - "eggs/**"
       - "images.json"
 
 jobs:
