@@ -99,17 +99,17 @@
       "default_value": "optional",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
       "name": "MODRINTH_PROJECTS_DEFAULT_VERSION_TYPE",
       "description": "The version type is used to determine the newest version to use from each project. The allowed values are release (default), beta, alpha. Setting to beta will pick up both release and beta versions. Setting to alpha will pick up release, beta, and alpha versions.",
       "env_variable": "MODRINTH_PROJECTS_DEFAULT_VERSION_TYPE",
-      "default_value": "release ",
+      "default_value": "release",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -169,7 +169,7 @@
       "default_value": "false",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -179,7 +179,7 @@
       "default_value": "false",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -209,7 +209,7 @@
       "default_value": "false",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -229,7 +229,7 @@
       "default_value": "10",
       "user_viewable": false,
       "user_editable": false,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -239,7 +239,7 @@
       "default_value": "10",
       "user_viewable": false,
       "user_editable": false,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -279,7 +279,7 @@
       "default_value": "true",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -289,7 +289,7 @@
       "default_value": "true",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -299,7 +299,7 @@
       "default_value": "true",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -309,7 +309,7 @@
       "default_value": "false",
       "user_viewable": false,
       "user_editable": false,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -319,7 +319,7 @@
       "default_value": "false",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -329,7 +329,7 @@
       "default_value": "true",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -339,7 +339,7 @@
       "default_value": "true",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -349,7 +349,7 @@
       "default_value": "true",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -359,7 +359,7 @@
       "default_value": "true",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -379,7 +379,7 @@
       "default_value": "hard",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -389,7 +389,7 @@
       "default_value": "true",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -399,7 +399,7 @@
       "default_value": "true",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -409,7 +409,7 @@
       "default_value": "true",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -419,7 +419,7 @@
       "default_value": "100",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -429,7 +429,7 @@
       "default_value": "false",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -439,7 +439,7 @@
       "default_value": "2",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -449,7 +449,7 @@
       "default_value": "true",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -469,7 +469,7 @@
       "default_value": "false",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -479,7 +479,7 @@
       "default_value": "false",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -499,7 +499,7 @@
       "default_value": "world",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -509,7 +509,7 @@
       "default_value": "normal",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -519,7 +519,7 @@
       "default_value": "1000000",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -529,7 +529,7 @@
       "default_value": "8",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -539,7 +539,7 @@
       "default_value": "-1",
       "user_viewable": false,
       "user_editable": false,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -549,7 +549,7 @@
       "default_value": "29999984",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -559,7 +559,7 @@
       "default_value": "survival",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -579,7 +579,7 @@
       "default_value": "256",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -589,7 +589,7 @@
       "default_value": "true",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -599,7 +599,7 @@
       "default_value": "4",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -609,7 +609,7 @@
       "default_value": "false",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -619,7 +619,7 @@
       "default_value": "-1",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -629,7 +629,7 @@
       "default_value": "0",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -639,7 +639,7 @@
       "default_value": "false",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -649,7 +649,7 @@
       "default_value": "false",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -659,7 +659,7 @@
       "default_value": "0",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -669,7 +669,7 @@
       "default_value": "lz4",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -689,7 +689,7 @@
       "default_value": "false",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -749,7 +749,7 @@
       "default_value": "8",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -759,7 +759,7 @@
       "default_value": "false",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -769,7 +769,7 @@
       "default_value": "true",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -779,7 +779,7 @@
       "default_value": "0",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -789,7 +789,7 @@
       "default_value": "0",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     },
     {
@@ -799,7 +799,7 @@
       "default_value": "false",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -809,7 +809,7 @@
       "default_value": "true",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -819,7 +819,7 @@
       "default_value": "8",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|integer",
       "field_type": "text"
     }
   ]
