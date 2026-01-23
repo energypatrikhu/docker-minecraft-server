@@ -53,6 +53,16 @@
       "field_type": "text"
     },
     {
+      "name": "MODRINTH_EXCLUDE_FILES",
+      "description": "Modrinth mods to exclude from installation, separated by comma. Example: modID,modID",
+      "env_variable": "MODRINTH_EXCLUDE_FILES",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
       "name": "CURSEFORGE_FILES",
       "description": "CurseForge mods to install, separated by comma. Example: modID:version,modID:version (version is optional)",
       "env_variable": "CURSEFORGE_FILES",
