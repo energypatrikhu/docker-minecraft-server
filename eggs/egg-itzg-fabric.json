@@ -37,7 +37,7 @@
       "description": "The server type",
       "env_variable": "TYPE",
       "default_value": "FABRIC",
-      "user_viewable": true,
+      "user_viewable": false,
       "user_editable": false,
       "rules": "required|string",
       "field_type": "text"
@@ -117,36 +117,6 @@
       "description": "The image declares an initial and maximum Java memory-heap limit of 1 GB.",
       "env_variable": "MEMORY",
       "default_value": "4G",
-      "user_viewable": true,
-      "user_editable": true,
-      "rules": "required|string",
-      "field_type": "text"
-    },
-    {
-      "name": "USE_AIKAR_FLAGS",
-      "description": "Aikar has done some research into finding the optimal JVM flags for GC tuning, which becomes more important as more users are connected concurrently",
-      "env_variable": "USE_AIKAR_FLAGS",
-      "default_value": "true",
-      "user_viewable": true,
-      "user_editable": true,
-      "rules": "required|string",
-      "field_type": "text"
-    },
-    {
-      "name": "USE_MEOWICE_FLAGS",
-      "description": "MeowIce has created an updated set of JVM flags based on Aikar's flags but with support for optimizations for Java 17 and above",
-      "env_variable": "USE_MEOWICE_FLAGS",
-      "default_value": "true",
-      "user_viewable": true,
-      "user_editable": true,
-      "rules": "required|string",
-      "field_type": "text"
-    },
-    {
-      "name": "USE_SIMD_FLAGS",
-      "description": "Support for optimized SIMD operation",
-      "env_variable": "USE_SIMD_FLAGS",
-      "default_value": "true",
       "user_viewable": true,
       "user_editable": true,
       "rules": "required|string",
@@ -237,7 +207,7 @@
       "description": "EULA",
       "env_variable": "EULA",
       "default_value": "true",
-      "user_viewable": true,
+      "user_viewable": false,
       "user_editable": false,
       "rules": "required|string",
       "field_type": "text"
@@ -247,8 +217,8 @@
       "description": "To allow time for players to finish what they're doing during a graceful server shutdown, set STOP_SERVER_ANNOUNCE_DELAY to a number of seconds to delay after an announcement is posted by the server.",
       "env_variable": "STOP_SERVER_ANNOUNCE_DELAY",
       "default_value": "10",
-      "user_viewable": true,
-      "user_editable": true,
+      "user_viewable": false,
+      "user_editable": false,
       "rules": "nullable|string",
       "field_type": "text"
     },
@@ -257,8 +227,8 @@
       "description": "When the container is signalled to stop, the Minecraft process wrapper will attempt to send a \"stop\" command via RCON or console and waits for the process to gracefully finish.",
       "env_variable": "STOP_DURATION",
       "default_value": "10",
-      "user_viewable": true,
-      "user_editable": true,
+      "user_viewable": false,
+      "user_editable": false,
       "rules": "nullable|string",
       "field_type": "text"
     },
@@ -267,7 +237,7 @@
       "description": "CurseForge (Eternal) API Key.",
       "env_variable": "CF_API_KEY",
       "default_value": "$2a$10$mYiG9brVg9LuZ0NFZ8Ghv.KsAue/iBmkq2Vw/IX2jjXlNEnFU/4PS",
-      "user_viewable": true,
+      "user_viewable": false,
       "user_editable": false,
       "rules": "required|string",
       "field_type": "text"
@@ -307,8 +277,8 @@
       "description": "Enable or disable the graphical user interface.",
       "env_variable": "GUI",
       "default_value": "false",
-      "user_viewable": true,
-      "user_editable": true,
+      "user_viewable": false,
+      "user_editable": false,
       "rules": "nullable|string",
       "field_type": "text"
     },
@@ -537,7 +507,7 @@
       "description": "Sets the maximum number of milliseconds a single tick may take before the server watchdog stops the server with a crash.",
       "env_variable": "MAX_TICK_TIME",
       "default_value": "-1",
-      "user_viewable": true,
+      "user_viewable": false,
       "user_editable": false,
       "rules": "nullable|string",
       "field_type": "text"
