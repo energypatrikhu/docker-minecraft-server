@@ -1,4 +1,21 @@
-> **Note:** This is a fork of [itzg/docker-minecraft-server](https://github.com/itzg/docker-minecraft-server) customized for use with Pterodactyl Panel.
+# Docker Minecraft Server for Pterodactyl Panel
+
+This is a fork of [itzg/docker-minecraft-server](https://github.com/itzg/docker-minecraft-server) customized for use with Pterodactyl Panel.
+
+## Pterodactyl Eggs
+
+Pterodactyl Panel eggs for this image can be found in [the eggs directory](eggs) of this repo:
+
+- [Vanilla](eggs/egg-itzg-vanilla.json)
+- [Forge](eggs/egg-itzg-forge.json)
+- [Fabric](eggs/egg-itzg-fabric.json)
+- [NeoForge](eggs/egg-itzg-neoforge.json)
+- [CurseForge](eggs/egg-itzg-curseforge.json)
+- [Modrinth](eggs/egg-itzg-modrinth.json)
+
+> **Note:** The eggs contain the minimal required environment variables. For a complete list of all supported environment variables, please refer to the [documentation](https://docker-minecraft-server.readthedocs.io/).
+
+## Original README
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/itzg/minecraft-server.svg?logo=docker)](https://hub.docker.com/r/itzg/minecraft-server/)
 [![Docker Stars](https://img.shields.io/docker/stars/itzg/minecraft-server.svg?logo=docker)](https://hub.docker.com/r/itzg/minecraft-server/)
@@ -20,15 +37,3 @@ There you will find things like
 
 There are also many examples located in [the examples directory](examples) of this repo.
 
-## Pterodactyl Eggs
-
-Pterodactyl Panel eggs for this image can be found in [the eggs directory](eggs) of this repo:
-
-- [Vanilla](eggs/egg-itzg-vanilla.json)
-- [Forge](eggs/egg-itzg-forge.json)
-- [Fabric](eggs/egg-itzg-fabric.json)
-- [NeoForge](eggs/egg-itzg-neoforge.json)
-- [CurseForge](eggs/egg-itzg-curseforge.json)
-- [Modrinth](eggs/egg-itzg-modrinth.json)
-
-> **Note:** The eggs contain the minimal required environment variables. For a complete list of all supported environment variables, please refer to the [documentation](https://docker-minecraft-server.readthedocs.io/).
