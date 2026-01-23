@@ -54,7 +54,7 @@
     },
     {
       "name": "MEMORY",
-      "description": "The image declares an initial and maximum Java memory-heap limit of 1 GB.",
+      "description": "The image declares an initial and maximum Java memory-heap limit.",
       "env_variable": "MEMORY",
       "default_value": "1G",
       "user_viewable": true,
