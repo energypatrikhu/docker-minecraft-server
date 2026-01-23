@@ -148,8 +148,8 @@
       "env_variable": "USE_SIMD_FLAGS",
       "default_value": "true",
       "user_viewable": true,
-      "user_editable": false,
-      "rules": "nullable|string",
+      "user_editable": true,
+      "rules": "required|string",
       "field_type": "text"
     },
     {

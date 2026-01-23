@@ -96,10 +96,10 @@
       "name": "MODRINTH_PROJECTS_DEFAULT_VERSION_TYPE",
       "description": "The version type is used to determine the newest version to use from each project. The allowed values are release (default), beta, alpha. Setting to beta will pick up both release and beta versions. Setting to alpha will pick up release, beta, and alpha versions.",
       "env_variable": "MODRINTH_PROJECTS_DEFAULT_VERSION_TYPE",
-      "default_value": "release ",
+      "default_value": "release",
       "user_viewable": true,
       "user_editable": true,
-      "rules": "nullable|string",
+      "rules": "required|string",
       "field_type": "text"
     },
     {
@@ -138,8 +138,8 @@
       "env_variable": "USE_SIMD_FLAGS",
       "default_value": "true",
       "user_viewable": true,
-      "user_editable": false,
-      "rules": "nullable|string",
+      "user_editable": true,
+      "rules": "required|string",
       "field_type": "text"
     },
     {
