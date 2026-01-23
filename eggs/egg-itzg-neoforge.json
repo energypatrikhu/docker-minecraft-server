@@ -1,0 +1,286 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-01-22T13:44:57+01:00",
+  "name": "itzg neoforge",
+  "author": "noreply@server.local",
+  "description": null,
+  "features": [],
+  "docker_images": {
+    "Java 25": "ghcr.io\/energypatrikhu\/minecraft-server:java25",
+    "Java 21": "ghcr.io\/energypatrikhu\/minecraft-server:java21",
+    "Java 17": "ghcr.io\/energypatrikhu\/minecraft-server:java17",
+    "Java 11": "ghcr.io\/energypatrikhu\/minecraft-server:java11",
+    "Java 8": "ghcr.io\/energypatrikhu\/minecraft-server:java8"
+  },
+  "file_denylist": [],
+  "startup": "\/image\/scripts\/start",
+  "config": {
+    "files": "{}",
+    "startup": "{}",
+    "logs": "{}",
+    "stop": "stop"
+  },
+  "scripts": {
+    "installation": {
+      "script": null,
+      "container": "alpine:3.4",
+      "entrypoint": "ash"
+    }
+  },
+  "variables": [
+    {
+      "name": "TYPE",
+      "description": "The server type",
+      "env_variable": "TYPE",
+      "default_value": "NEOFORGE",
+      "user_viewable": true,
+      "user_editable": false,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
+      "name": "VERSION",
+      "description": "The Minecraft version to use.",
+      "env_variable": "VERSION",
+      "default_value": "1.12.2",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string",
+      "field_type": "text"
+    },
+    {
+      "name": "NEOFORGE_VERSION",
+      "description": "The NeoForge version to use. Can be set to a specific version, \"latest\" or \"beta\".",
+      "env_variable": "NEOFORGE_VERSION",
+      "default_value": "beta",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string",
+      "field_type": "text"
+    },
+    {
+      "name": "CURSEFORGE_FILES",
+      "description": "CurseForge mods to install, separated by comma. Example: modID:version,modID:version (version is optional)",
+      "env_variable": "CURSEFORGE_FILES",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
+      "name": "MODRINTH_PROJECTS",
+      "description": "Modrinth projects to install, separated by comma. Example: fabric-api,cloth-config-fabric",
+      "env_variable": "MODRINTH_PROJECTS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
+      "name": "MODRINTH_DOWNLOAD_DEPENDENCIES",
+      "description": "Can be set to none, required, or optional to download required and/or optional dependencies.",
+      "env_variable": "MODRINTH_DOWNLOAD_DEPENDENCIES",
+      "default_value": "optional",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
+      "name": "MODRINTH_PROJECTS_DEFAULT_VERSION_TYPE",
+      "description": "The version type is used to determine the newest version to use from each project. The allowed values are release (default), beta, alpha. Setting to beta will pick up both release and beta versions. Setting to alpha will pick up release, beta, and alpha versions.",
+      "env_variable": "MODRINTH_PROJECTS_DEFAULT_VERSION_TYPE",
+      "default_value": "release ",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
+      "name": "MEMORY",
+      "description": "The image declares an initial and maximum Java memory-heap limit of 1 GB.",
+      "env_variable": "MEMORY",
+      "default_value": "4G",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string",
+      "field_type": "text"
+    },
+    {
+      "name": "USE_AIKAR_FLAGS",
+      "description": "Aikar has done some research into finding the optimal JVM flags for GC tuning, which becomes more important as more users are connected concurrently",
+      "env_variable": "USE_AIKAR_FLAGS",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|boolean",
+      "field_type": "text"
+    },
+    {
+      "name": "USE_MEOWICE_FLAGS",
+      "description": "MeowIce has created an updated set of JVM flags based on Aikar's flags but with support for optimizations for Java 17 and above",
+      "env_variable": "USE_MEOWICE_FLAGS",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|boolean",
+      "field_type": "text"
+    },
+    {
+      "name": "USE_SIMD_FLAGS",
+      "description": "Support for optimized SIMD operation",
+      "env_variable": "USE_SIMD_FLAGS",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": false,
+      "rules": "boolean",
+      "field_type": "text"
+    },
+    {
+      "name": "JVM_OPTS",
+      "description": "General JVM options can be passed to the Minecraft Server invocation by passing a JVM_OPTS environment variable. The JVM requires -XX options to precede -X options, so those can be declared in JVM_XX_OPTS. Both variables are space-delimited, raw JVM arguments",
+      "env_variable": "JVM_OPTS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
+      "name": "JVM_XX_OPTS",
+      "description": "General JVM options can be passed to the Minecraft Server invocation by passing a JVM_OPTS environment variable. The JVM requires -XX options to precede -X options, so those can be declared in JVM_XX_OPTS. Both variables are space-delimited, raw JVM arguments",
+      "env_variable": "JVM_XX_OPTS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
+      "name": "JVM_DD_OPTS",
+      "description": "As a shorthand for passing several system properties as -D arguments, you can instead pass a comma separated list of name=value or name:value pairs with JVM_DD_OPTS. (The colon syntax is provided for management platforms like Plesk that don't allow = inside a value.)",
+      "env_variable": "JVM_DD_OPTS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
+      "name": "EXTRA_ARGS",
+      "description": "Arguments that would usually be passed to the jar file (those which are written after the filename)",
+      "env_variable": "EXTRA_ARGS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
+      "name": "ENABLE_WHITELIST",
+      "description": "Enable the whitelist to manually manage the whitelist",
+      "env_variable": "ENABLE_WHITELIST",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "boolean",
+      "field_type": "text"
+    },
+    {
+      "name": "WHITELIST",
+      "description": "A list of usernames and\/or UUIDs separated by comma",
+      "env_variable": "WHITELIST",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
+      "name": "LOG_TIMESTAMP",
+      "description": "To include the timestamp with each log set to true",
+      "env_variable": "LOG_TIMESTAMP",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "boolean",
+      "field_type": "text"
+    },
+    {
+      "name": "EULA",
+      "description": "EULA",
+      "env_variable": "EULA",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": false,
+      "rules": "required|boolean",
+      "field_type": "text"
+    },
+    {
+      "name": "MOTD",
+      "description": "Set the server log in message.",
+      "env_variable": "MOTD",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
+      "name": "DIFFICULTY",
+      "description": "The difficulty level. Available values: peaceful,easy,normal,hard",
+      "env_variable": "DIFFICULTY",
+      "default_value": "hard",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
+      "name": "LEVEL",
+      "description": "Maps to [the `level-name` server property](https:\/\/minecraft.wiki\/w\/Server.properties#level-name). You can either switch between world saves or run multiple containers with different saves by using the LEVEL option",
+      "env_variable": "LEVEL",
+      "default_value": "world",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
+      "name": "STOP_SERVER_ANNOUNCE_DELAY",
+      "description": "To allow time for players to finish what they're doing during a graceful server shutdown, set STOP_SERVER_ANNOUNCE_DELAY to a number of seconds to delay after an announcement is posted by the server.",
+      "env_variable": "STOP_SERVER_ANNOUNCE_DELAY",
+      "default_value": "10",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
+      "name": "STOP_DURATION",
+      "description": "When the container is signalled to stop, the Minecraft process wrapper will attempt to send a \"stop\" command via RCON or console and waits for the process to gracefully finish.",
+      "env_variable": "STOP_DURATION",
+      "default_value": "10",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string",
+      "field_type": "text"
+    },
+    {
+      "name": "CF_API_KEY",
+      "description": "CurseForge (Eternal) API Key.",
+      "env_variable": "CF_API_KEY",
+      "default_value": "$2a$10$mYiG9brVg9LuZ0NFZ8Ghv.KsAue/iBmkq2Vw/IX2jjXlNEnFU/4PS",
+      "user_viewable": true,
+      "user_editable": false,
+      "rules": "required|string",
+      "field_type": "text"
+    }
+  ]
+}
