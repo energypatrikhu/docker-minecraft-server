@@ -26,7 +26,7 @@
   },
   "scripts": {
     "installation": {
-      "script": null,
+      "script": "#!\/bin\/bash\r\n\r\napk add curl --no-cache\r\n\r\nif [ ! -d \/mnt\/server ]; then\r\n  mkdir -p \/mnt\/server\r\nfi\r\ncd \/mnt\/server\r\n\r\nif [ ! -f .pteroignore ]; then\r\n  curl -sSL -o .pteroignore https:\/\/raw.githubusercontent.com\/energypatrikhu\/docker-minecraft-server\/refs\/heads\/master\/eggs\/.pteroignore\r\nfi",
       "container": "alpine:3.4",
       "entrypoint": "ash"
     }
