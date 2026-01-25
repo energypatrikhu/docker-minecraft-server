@@ -23,6 +23,8 @@ temps/
 *_old.*
 *.old
 *.old.*
+*.rar
+*.rar.*
 *.zip
 *.zip.*
 *.tar
