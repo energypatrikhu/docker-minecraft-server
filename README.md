@@ -18,8 +18,6 @@ Pterodactyl Panel eggs for this image can be found in [the eggs directory](eggs)
 
 ## Original README
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/energypatrikhu/pterodactyl-minecraft-server.svg?logo=docker)](https://hub.docker.com/r/energypatrikhu/pterodactyl-minecraft-server/)
-[![Docker Stars](https://img.shields.io/docker/stars/energypatrikhu/pterodactyl-minecraft-server.svg?logo=docker)](https://hub.docker.com/r/energypatrikhu/pterodactyl-minecraft-server/)
 [![GitHub Issues](https://img.shields.io/github/issues-raw/itzg/docker-minecraft-server.svg)](https://github.com/itzg/docker-minecraft-server/issues)
 [![Discord](https://img.shields.io/discord/660567679458869252?label=Discord&logo=discord)](https://discord.gg/DXfKpjB)
 [![Build and Publish](https://github.com/itzg/docker-minecraft-server/actions/workflows/build-multiarch.yml/badge.svg)](https://github.com/itzg/docker-minecraft-server/actions/workflows/build-multiarch.yml)
