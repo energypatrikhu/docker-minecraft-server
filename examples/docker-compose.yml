@@ -1,6 +1,6 @@
 services:
   minecraft:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     stdin_open: true
     tty: true
     ports:

@@ -10,11 +10,11 @@
   "description": null,
   "features": [],
   "docker_images": {
-    "Java 25": "ghcr.io\/energypatrikhu\/minecraft-server:java25",
-    "Java 21": "ghcr.io\/energypatrikhu\/minecraft-server:java21",
-    "Java 17": "ghcr.io\/energypatrikhu\/minecraft-server:java17",
-    "Java 11": "ghcr.io\/energypatrikhu\/minecraft-server:java11",
-    "Java 8": "ghcr.io\/energypatrikhu\/minecraft-server:java8"
+    "Java 25": "ghcr.io\/energypatrikhu\/pterodactyl-minecraft-server:java25",
+    "Java 21": "ghcr.io\/energypatrikhu\/pterodactyl-minecraft-server:java21",
+    "Java 17": "ghcr.io\/energypatrikhu\/pterodactyl-minecraft-server:java17",
+    "Java 11": "ghcr.io\/energypatrikhu\/pterodactyl-minecraft-server:java11",
+    "Java 8": "ghcr.io\/energypatrikhu\/pterodactyl-minecraft-server:java8"
   },
   "file_denylist": [],
   "startup": "\/image\/scripts\/start",
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "installation": {
-      "script": "#!\/bin\/bash\r\n\r\napk add curl --no-cache\r\n\r\nif [ ! -d \/mnt\/server ]; then\r\n  mkdir -p \/mnt\/server\r\nfi\r\ncd \/mnt\/server\r\n\r\nif [ ! -f .pteroignore ]; then\r\n  curl -sSL -o .pteroignore https:\/\/raw.githubusercontent.com\/energypatrikhu\/docker-minecraft-server\/refs\/heads\/master\/eggs\/.pteroignore\r\nfi",
+      "script": "#!\/bin\/bash\r\n\r\napk add curl --no-cache\r\n\r\nif [ ! -d \/mnt\/server ]; then\r\n  mkdir -p \/mnt\/server\r\nfi\r\ncd \/mnt\/server\r\n\r\nif [ ! -f .pteroignore ]; then\r\n  curl -sSL -o .pteroignore https:\/\/raw.githubusercontent.com\/energypatrikhu\/pterodactyl-minecraft-server\/refs\/heads\/master\/eggs\/.pteroignore\r\nfi",
       "container": "alpine:3.4",
       "entrypoint": "ash"
     }

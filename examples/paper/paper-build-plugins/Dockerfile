@@ -1,4 +1,4 @@
-FROM itzg/minecraft-server
+FROM energypatrikhu/pterodactyl-minecraft-server
 
 ENV TYPE=PAPER
 

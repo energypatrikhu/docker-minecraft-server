@@ -1,7 +1,7 @@
 # Intro
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/itzg/minecraft-server.svg)](https://hub.docker.com/r/itzg/minecraft-server/)
-[![Docker Stars](https://img.shields.io/docker/stars/itzg/minecraft-server.svg?maxAge=2592000)](https://hub.docker.com/r/itzg/minecraft-server/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/energypatrikhu/pterodactyl-minecraft-server.svg)](https://hub.docker.com/r/energypatrikhu/pterodactyl-minecraft-server/)
+[![Docker Stars](https://img.shields.io/docker/stars/energypatrikhu/pterodactyl-minecraft-server.svg?maxAge=2592000)](https://hub.docker.com/r/energypatrikhu/pterodactyl-minecraft-server/)
 [![GitHub Issues](https://img.shields.io/github/issues-raw/itzg/docker-minecraft-server.svg)](https://github.com/itzg/docker-minecraft-server/issues)
 [![Discord](https://img.shields.io/discord/660567679458869252?label=Discord&logo=discord)](https://discord.gg/DXfKpjB)
 [![Build and Publish](https://github.com/itzg/docker-minecraft-server/workflows/Build%20and%20Publish/badge.svg)](https://github.com/itzg/docker-minecraft-server/actions)
@@ -13,7 +13,7 @@ latest snapshot. See the _Versions_ section below for more information.
 
 To simply use the latest stable version, run
 
-    docker run -d -it -p 25565:25565 -e EULA=TRUE itzg/minecraft-server
+    docker run -d -it -p 25565:25565 -e EULA=TRUE energypatrikhu/pterodactyl-minecraft-server
 
 where, in this case, the standard server port 25565 will be exposed on your host machine.
 
@@ -24,7 +24,7 @@ where, in this case, the standard server port 25565 will be exposed on your host
     Using `docker run` add a `-v` option somewhere before the image name:
 
     ```
-    ... -v /path/on/host:/home/container itzg/minecraft-server
+    ... -v /path/on/host:/home/container energypatrikhu/pterodactyl-minecraft-server
     ```
 
     Using docker compose, add a `volumes` section to the service definition:
@@ -59,7 +59,7 @@ By default, the container will download the latest version of the "vanilla" [Min
 
 services:
   mc:
-    image: itzg/minecraft-server:latest
+    image: energypatrikhu/pterodactyl-minecraft-server:latest
     pull_policy: daily
     tty: true
     stdin_open: true

@@ -3,7 +3,7 @@ Enable [Quilt server](https://quiltmc.org/) mode by adding a `-e TYPE=QUILT` to 
 ```shell
 docker run -d --pull=always \
     -v /path/on/host:/home/container -e TYPE=QUILT \
-    -p 25565:25565 -e EULA=TRUE --name mc itzg/minecraft-server
+    -p 25565:25565 -e EULA=TRUE --name mc energypatrikhu/pterodactyl-minecraft-server
 ```
 
 By default, the container will install the latest [quilt server launcher](https://quiltmc.org/install/server/), using the latest [quilt-installer](https://github.com/QuiltMC/quilt-installer) against the minecraft version you have defined with `VERSION` (defaulting to the latest vanilla release of the game).

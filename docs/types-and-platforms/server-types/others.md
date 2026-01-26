@@ -10,7 +10,7 @@ Beware that current [Sponge](https://www.spongepowered.org) `STABLE` versions fo
 
 ``` shell
 docker run -d --pull=always -v /path/on/host:/home/container -e TYPE=SPONGEVANILLA \
-    -p 25565:25565 -e EULA=TRUE --name mc itzg/minecraft-server:java8-multiarch
+    -p 25565:25565 -e EULA=TRUE --name mc energypatrikhu/pterodactyl-minecraft-server:java8-multiarch
 ```
 
 You can also choose to use the `EXPERIMENTAL` branch.

@@ -34,7 +34,7 @@ With Docker Compose, setting up a host attached directory is even easier since r
 
 services:
   mc:
-    image: itzg/minecraft-server:latest
+    image: energypatrikhu/pterodactyl-minecraft-server:latest
     pull_policy: daily
     ports:
       - 25565:25565
@@ -73,7 +73,7 @@ docker run --rm --volumes-from mc -v mc:/new alpine cp -avT /home/container /new
 Now you can recreate the container with any environment variable changes, etc by attaching the named volume created from the previous step:
 
 ``` shell
-docker run -d -it --name mc-new -v mc:/home/container -p 25565:25565 -e EULA=TRUE -e MEMORY=2G itzg/minecraft-server
+docker run -d -it --name mc-new -v mc:/home/container -p 25565:25565 -e EULA=TRUE -e MEMORY=2G energypatrikhu/pterodactyl-minecraft-server
 ```
 
 ### Locating filesystem path of anonymous volume

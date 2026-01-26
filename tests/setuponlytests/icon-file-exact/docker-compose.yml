@@ -1,6 +1,6 @@
 services:
   mc:
-    image: ${IMAGE_TO_TEST:-itzg/minecraft-server}
+    image: ${IMAGE_TO_TEST:-energypatrikhu/pterodactyl-minecraft-server}
     environment:
       EULA: "true"
       SETUP_ONLY: "true"

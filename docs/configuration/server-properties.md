@@ -261,7 +261,7 @@ Using `RCON_PASSWORD_FILE` is the recommended method for managing sensitive data
     ```yaml title="compose.yaml"
     services:
       mc:
-        image: itzg/minecraft-server:latest
+        image: energypatrikhu/pterodactyl-minecraft-server:latest
         pull_policy: daily
         tty: true
         stdin_open: true

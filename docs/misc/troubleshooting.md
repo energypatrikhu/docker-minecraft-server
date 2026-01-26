@@ -6,12 +6,12 @@ To troubleshoot any issues with memory allocation reported by the JVM, set the e
 
 If you are experiencing any issues with the "Changing ownership of /home/container" step, that can be disabled by setting `SKIP_CHOWN_DATA` to `true`.
 
-To confirm the image version that has been pulled, use the following command, replacing `itzg/minecraft-server` as needed for specific image tags:
+To confirm the image version that has been pulled, use the following command, replacing `energypatrikhu/pterodactyl-minecraft-server` as needed for specific image tags:
 
 ## Image labels
 
 ```shell
-docker image inspect itzg/minecraft-server -f "{{json .Config.Labels}}"
+docker image inspect energypatrikhu/pterodactyl-minecraft-server -f "{{json .Config.Labels}}"
 ```
 
 such as

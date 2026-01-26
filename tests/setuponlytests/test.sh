@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-: "${IMAGE_TO_TEST:=itzg/minecraft-server}"
+: "${IMAGE_TO_TEST:=energypatrikhu/pterodactyl-minecraft-server}"
 
 # go to script root directory
 cd "$(dirname "$0")" || exit 1

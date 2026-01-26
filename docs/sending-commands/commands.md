@@ -38,7 +38,7 @@ In order to attach and interact with the Minecraft server make sure to enable TT
     With `docker run` use the `-it` arguments:
 
     ```shell
-    docker run -d -it -p 25565:25565 --name mc itzg/minecraft-server
+    docker run -d -it -p 25565:25565 --name mc energypatrikhu/pterodactyl-minecraft-server
     ```
 
     or with a compose file:

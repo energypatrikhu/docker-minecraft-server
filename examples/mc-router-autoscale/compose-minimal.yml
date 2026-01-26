@@ -13,13 +13,13 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
   vanilla:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     environment:
       EULA: "TRUE"
     labels:
       mc-router.host: "vanilla.example.com"
   paper:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     environment:
       EULA: "TRUE"
       TYPE: PAPER

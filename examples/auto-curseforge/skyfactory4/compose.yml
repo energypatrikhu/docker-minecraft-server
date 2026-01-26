@@ -1,6 +1,6 @@
 services:
   mc:
-    image: itzg/minecraft-server:java8
+    image: energypatrikhu/pterodactyl-minecraft-serveractyl-minecraft-server:java8
     environment:
       EULA: "true"
       MODPACK_PLATFORM: AUTO_CURSEFORGE

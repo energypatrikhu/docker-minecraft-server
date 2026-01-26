@@ -28,14 +28,14 @@ services:
 #                      Image & Container Name                      #
 #                                                                  #
 # Specify Image Name and Java Version. The 'image' will always be  #
-# 'itzg/minecraft-server' however the tag added to the end is      #
+# 'energypatrikhu/pterodactyl-minecraft-server' however the tag added to the end is      #
 # where you can specify the java version or container architecture.#
 # See readme.md for a full list.                                   #
 #                                                                  #
 # 'container_name:' This can be anything you like. This is the name#
 # that will show when you run 'docker ps' commands.                #
 ####################################################################
-    image: itzg/minecraft-server:java8
+    image: energypatrikhu/pterodactyl-minecraft-server:java8
     container_name: mc_bmp
 
 ####################################################################

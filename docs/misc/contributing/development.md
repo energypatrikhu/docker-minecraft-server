@@ -3,7 +3,7 @@
 Adding a new server `TYPE` can vary due to the complexity of obtaining and configuring each type; however, the addition of any server type includes at least the following steps:
 
 1. Copy an existing "start-deploy*" script, such as [start-deployFabric](https://github.com/itzg/docker-minecraft-server/blob/master/scripts/start-deployFabric) and rename it accordingly making sure to retain the "start-deploy" prefix
-2. Modify the type-specific behavior between the "start-utils" preamble and the hand-off to `start-setupWorld` at the end of the script 
+2. Modify the type-specific behavior between the "start-utils" preamble and the hand-off to `start-setupWorld` at the end of the script
 3. Develop and test the changes using the [iterative process described below](#iterative-script-development)
 4. Add a case-entry to the `case "${TYPE^^}"` in [start-configuration](https://github.com/itzg/docker-minecraft-server/blob/master/scripts/start-configuration)
 5. Add a section to the [docs](https://github.com/itzg/docker-minecraft-server/tree/master/docs). It is recommended to copy-modify an existing section to retain a similar wording and level of detail
@@ -80,7 +80,7 @@ The distribution will be installed in the project's `build/install/mc-image-help
 Refer to the instructions above to mount any locally modified image scripts or build a local copy of the image using or with alternate `BASE_IMAGE`, as described above:
 
 ```shell
-docker build -t itzg/minecraft-server .
+docker build -t energypatrikhu/pterodactyl-minecraft-server .
 ```
 
 Mount the local mc-image-helper distribution directory as a volume in the container at the path `/usr/share/mc-image-helper`, such as
@@ -89,7 +89,7 @@ Mount the local mc-image-helper distribution directory as a volume in the contai
 docker run -it --rm \
   -v /path/to/mc-image-helper/build/install/mc-image-helper:/usr/share/mc-image-helper \
   -e EULA=true \
-  itzg/minecraft-server
+  energypatrikhu/pterodactyl-minecraft-server
 ```
 
 In a compose file, include the volume mount in the `volumes` section of the container definition:
@@ -110,7 +110,7 @@ goreleaser release --snapshot --clean
 
 Clone [itzg/github-releases-proxy](https://github.com/itzg/github-releases-proxy) and run it according to the instructions shown there.
 
-In the Docker build, configure the following 
+In the Docker build, configure the following
 
 ```shell
 --build-arg GITHUB_BASEURL=http://host.docker.internal:8080 \

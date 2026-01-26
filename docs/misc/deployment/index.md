@@ -1,11 +1,11 @@
-# More Deployment Info 
+# More Deployment Info
 
 ## On Kubernetes
 
 ### Using Helm
 
 - itzg Helm Chart:
-    - [GitHub repo](https://github.com/itzg/minecraft-server-charts)
+    - [GitHub repo](https://github.com/energypatrikhu/pterodactyl-minecraft-server-charts)
       - [Helm Chart repo](https://itzg.github.io/minecraft-server-charts/)
 - [mcsh/server-deployment](https://github.com/mcserverhosting-net/charts)
 

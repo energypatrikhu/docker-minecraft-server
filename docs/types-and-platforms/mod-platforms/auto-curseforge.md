@@ -45,7 +45,7 @@ To manage a CurseForge modpack automatically with upgrade support, pinned or lat
 
     To use the equivalent with `docker run` you need to specify the `.env` file explicitly:
     ```shell
-    docker run --env-file=.env itzg/minecraft-server
+    docker run --env-file=.env energypatrikhu/pterodactyl-minecraft-server
     ```
 
     Alternately you can use [docker secrets](https://docs.docker.com/compose/how-tos/use-secrets/) with a `CF_API_KEY_FILE` environment variable:
@@ -192,7 +192,7 @@ If you wish to use an unpublished modpack zip, set the container path to the fil
     ```yaml
     services:
       mc:
-        image: itzg/minecraft-server:latest
+        image: energypatrikhu/pterodactyl-minecraft-server:latest
         pull_policy: daily
         environment:
           EULA: true

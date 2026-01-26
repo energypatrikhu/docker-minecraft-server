@@ -33,5 +33,5 @@ The following example runs the latest version of [FTB Presents Direwolf20 1.12](
 docker run -d --pull=always -v /path/on/host:/home/container \
     -e EULA=TRUE -e TYPE=FTBA \
     -e FTB_MODPACK_ID=31 -p 25565:25565 \
-    itzg/minecraft-server:java8-multiarch
+    energypatrikhu/pterodactyl-minecraft-server:java8-multiarch
 ```

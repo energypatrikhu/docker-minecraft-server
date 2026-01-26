@@ -5,7 +5,7 @@ A [Fabric server](https://fabricmc.net/) can be automatically downloaded, upgrad
     Using `docker run` command line
 
     ```shell
-    docker run -d --pull=always -e EULA=TRUE -e TYPE=FABRIC -p 25565:25565 itzg/minecraft-server
+    docker run -d --pull=always -e EULA=TRUE -e TYPE=FABRIC -p 25565:25565 energypatrikhu/pterodactyl-minecraft-server
     ```
 
     In a compose file service:

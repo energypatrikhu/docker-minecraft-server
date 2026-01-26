@@ -17,7 +17,7 @@ services:
     # ports: # Not needed, tailscale is directly linking to the container.
     # - "25565:25565"
   minecraft-server:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     network_mode: container:tailscale
     stdin_open: true
     tty: true

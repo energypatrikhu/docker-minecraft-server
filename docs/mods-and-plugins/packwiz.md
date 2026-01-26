@@ -8,7 +8,7 @@ To configure server mods using a packwiz modpack, set the `PACKWIZ_URL` environm
 docker run -d --pull=always \
     -v /path/on/host:/home/container -e TYPE=FABRIC \
     -e "PACKWIZ_URL=https://example.com/modpack/pack.toml" \
-    itzg/minecraft-server
+    energypatrikhu/pterodactyl-minecraft-server
 ```
 
 packwiz modpack definitions are processed before other mod definitions (`MODPACK`, `MODS`, etc.) to allow for additional processing/overrides you may want to perform (in case of mods not available via Modrinth/CurseForge, or you do not maintain the pack).

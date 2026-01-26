@@ -20,7 +20,7 @@ spec:
                 name: mc
                 optional: true
           env: []
-          image: itzg/minecraft-server
+          image: energypatrikhu/pterodactyl-minecraft-server
           stdin: true
           tty: true
           volumeMounts:

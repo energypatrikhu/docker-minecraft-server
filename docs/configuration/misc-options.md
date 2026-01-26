@@ -19,7 +19,7 @@ For example, with Paper, it would look something like this:
 docker run -d --pull=always \
     -v /path/on/host:/home/container \
     -e TYPE=PAPER -e FORCE_REDOWNLOAD=true \
-    -p 25565:25565 -e EULA=TRUE --name mc itzg/minecraft-server
+    -p 25565:25565 -e EULA=TRUE --name mc energypatrikhu/pterodactyl-minecraft-server
 ```
 
 ## Running as alternate user/group ID
@@ -154,7 +154,7 @@ You can configure the timezone to match yours by setting the `TZ` environment va
 
 such as:
 
-        docker run -d -it --pull=always -e TZ=Europe/London -p 25565:25565 --name mc itzg/minecraft-server
+        docker run -d -it --pull=always -e TZ=Europe/London -p 25565:25565 --name mc energypatrikhu/pterodactyl-minecraft-server
 
 Or mounting `/etc/timezone` as readonly (not supported on Windows):
 
@@ -162,7 +162,7 @@ Or mounting `/etc/timezone` as readonly (not supported on Windows):
 
 such as:
 
-        docker run -d -it --pull=always -v /etc/timezone:/etc/timezone:ro -p 25565:25565 --name mc itzg/minecraft-server
+        docker run -d -it --pull=always -v /etc/timezone:/etc/timezone:ro -p 25565:25565 --name mc energypatrikhu/pterodactyl-minecraft-server
 
 ## HTTP Proxy
 

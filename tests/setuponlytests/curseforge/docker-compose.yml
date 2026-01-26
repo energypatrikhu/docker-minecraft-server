@@ -1,6 +1,6 @@
 services:
   mc:
-    image: ${IMAGE_TO_TEST:-itzg/minecraft-server:java8-multiarch}
+    image: ${IMAGE_TO_TEST:-energypatrikhu/pterodactyl-minecraft-server:java8-multiarch}
     environment:
       EULA: "true"
       SETUP_ONLY: "TRUE"

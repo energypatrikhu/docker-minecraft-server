@@ -115,7 +115,7 @@ By default, the container will run the latest experimental build of [Folia serve
     ```shell
     docker run -d --pull=always \
         -v /path/on/host:/home/container -e TYPE=FOLIA \
-        -p 25565:25565 -e EULA=TRUE --name mc itzg/minecraft-server
+        -p 25565:25565 -e EULA=TRUE --name mc energypatrikhu/pterodactyl-minecraft-server
     ```
 
 If you are hosting your own copy of Folia you can override the download URL with `FOLIA_DOWNLOAD_URL=<url>`.

@@ -1,6 +1,6 @@
 services:
   minecraft:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     volumes:
       - ./home/container:/home/container
       - ./mods:/mods
