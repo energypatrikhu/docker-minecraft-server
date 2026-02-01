@@ -1,6 +1,6 @@
 services:
   mc:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     tty: true
     stdin_open: true
     ports:
@@ -17,5 +17,5 @@ services:
       # MODRINTH_VERSION: 1.6.1.4
       # MODRINTH_VERSION: "Cobblemon [Fabric] 1.6.1.4"
     volumes:
-      # attach the relative directory 'data' to the container's /data path
-      - ./data:/data
+      # attach the relative directory 'data' to the container's /home/container path
+      - ./home/container:/home/container

@@ -1,6 +1,6 @@
 services:
   mc:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     environment:
       EULA: true
       MODPACK_PLATFORM: MODRINTH
@@ -8,9 +8,9 @@ services:
       # modpacks directory next to this compose file.
       MODRINTH_MODPACK: /modpacks/Cobblemon Modpack [Fabric] 1.4.1.mrpack
     ports:
-      -  "25565:25565"
+      - "25565:25565"
     volumes:
-      - mc-data:/data
+      - mc-data:/home/container
       - ./modpacks:/modpacks:ro
 
 volumes:

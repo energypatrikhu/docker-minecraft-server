@@ -45,7 +45,7 @@ To manage a CurseForge modpack automatically with upgrade support, pinned or lat
 
     To use the equivalent with `docker run` you need to specify the `.env` file explicitly:
     ```shell
-    docker run --env-file=.env itzg/minecraft-server
+    docker run --env-file=.env energypatrikhu/pterodactyl-minecraft-server
     ```
 
     Alternately you can use [docker secrets](https://docs.docker.com/compose/how-tos/use-secrets/) with a `CF_API_KEY_FILE` environment variable:
@@ -192,7 +192,7 @@ If you wish to use an unpublished modpack zip, set the container path to the fil
     ```yaml
     services:
       mc:
-        image: itzg/minecraft-server:latest
+        image: energypatrikhu/pterodactyl-minecraft-server:latest
         pull_policy: daily
         environment:
           EULA: true
@@ -272,7 +272,7 @@ If needing to iterate on the options above, set `CF_FORCE_SYNCHRONIZE` to "true"
 
 ## Excluding Overrides Files
 
-Modpack zip files typically include an `overrides` subdirectory that may contain config files, world data, and extra mod files. All of those files will be extracted into the `/data` path of the container. If any of those files, such as incompatible mods, need to be excluded from extraction, then the `CF_OVERRIDES_EXCLUSIONS` variable can be set with a comma or newline delimited list of ant-style paths ([see below](#ant-style-paths)) to exclude, relative to the overrides (or `/data`) directory.
+Modpack zip files typically include an `overrides` subdirectory that may contain config files, world data, and extra mod files. All of those files will be extracted into the `/home/container` path of the container. If any of those files, such as incompatible mods, need to be excluded from extraction, then the `CF_OVERRIDES_EXCLUSIONS` variable can be set with a comma or newline delimited list of ant-style paths ([see below](#ant-style-paths)) to exclude, relative to the overrides (or `/home/container`) directory.
 
 ### Ant-style paths
 

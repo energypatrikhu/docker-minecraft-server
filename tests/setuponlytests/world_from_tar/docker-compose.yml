@@ -1,7 +1,7 @@
 services:
   mc:
     restart: "no"
-    image: ${IMAGE_TO_TEST:-itzg/minecraft-server}
+    image: ${IMAGE_TO_TEST:-energypatrikhu/pterodactyl-minecraft-server}
     environment:
       EULA: "TRUE"
       SETUP_ONLY: "TRUE"
@@ -12,6 +12,6 @@ services:
       VERSION: 1.18.1
     volumes:
       - ./worlds:/worlds:ro
-      - ./data:/data
+      - ./home/container:/home/container
       # the following are only used to speed up test execution
       - ./verify.sh:/servers/fake.jar

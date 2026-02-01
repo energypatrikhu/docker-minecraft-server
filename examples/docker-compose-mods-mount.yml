@@ -1,8 +1,8 @@
 services:
   minecraft:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     volumes:
-      - ./data:/data
+      - ./home/container:/home/container
       - ./mods:/mods
     ports:
       - "25565:25565"

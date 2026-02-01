@@ -1,7 +1,7 @@
 services:
   mc:
     restart: "no"
-    image: ${IMAGE_TO_TEST:-itzg/minecraft-server}
+    image: ${IMAGE_TO_TEST:-energypatrikhu/pterodactyl-minecraft-server}
     environment:
       EULA: "TRUE"
       SETUP_ONLY: "TRUE"
@@ -10,4 +10,4 @@ services:
       DIFFICULTY: "0"
 
     volumes:
-      - ./data:/data
+      - ./home/container:/home/container

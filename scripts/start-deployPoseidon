@@ -23,7 +23,7 @@ else
 fi
 
 if ! SERVER=$(mc-image-helper github download-latest-asset \
-  --output-directory=/data \
+  --output-directory=/home/container \
   --name-pattern="^(?!original-).+\.jar" \
   ${poseidonRepo}
   ); then

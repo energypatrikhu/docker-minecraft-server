@@ -13,7 +13,7 @@ To use the raw files, you can download or link to them using the following patte
 ```yaml
 services:
   mc:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     container_name: paper
     environment:
       EULA: "true"
@@ -24,7 +24,7 @@ services:
     ports:
       - "25565:25565"
     volumes:
-      - mc-paper:/data
+      - mc-paper:/home/container
     restart: unless-stopped
 volumes:
   mc-paper: {}
@@ -35,7 +35,7 @@ For example:
 ```yaml
 services:
   mc:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     container_name: paper
     environment:
       EULA: "true"
@@ -46,7 +46,7 @@ services:
     ports:
       - "25565:25565"
     volumes:
-      - mc-paper:/data
+      - mc-paper:/home/container
     restart: unless-stopped
 volumes:
   mc-paper: {}

@@ -8,18 +8,18 @@ services:
     volumes:
       - waterfall:/server
       - ./waterfall-config:/config
-# If you want to use Velocity here is a premade version that supports Velocity
-#  velocity-proxy:
-#    image: itzg/mc-proxy
-#    environment:
-#      TYPE: VELOCITY
-#    ports:
-#      - "25565:25577"
-#    volumes:
-#      - velocity:/server
-#      - ./velocity-config:/config
+  # If you want to use Velocity here is a premade version that supports Velocity
+  #  velocity-proxy:
+  #    image: itzg/mc-proxy
+  #    environment:
+  #      TYPE: VELOCITY
+  #    ports:
+  #      - "25565:25577"
+  #    volumes:
+  #      - velocity:/server
+  #      - ./velocity-config:/config
   mc:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     environment:
       EULA: "true"
       TYPE: PAPER
@@ -28,7 +28,7 @@ services:
       # since we're behind a proxy
       ONLINE_MODE: "false"
     volumes:
-      - mc:/data
+      - mc:/home/container
       # mainly to drop in config files specific to plugins
       - ./mc-plugins:/plugins
     networks:

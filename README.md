@@ -1,5 +1,23 @@
-[![Docker Pulls](https://img.shields.io/docker/pulls/itzg/minecraft-server.svg?logo=docker)](https://hub.docker.com/r/itzg/minecraft-server/)
-[![Docker Stars](https://img.shields.io/docker/stars/itzg/minecraft-server.svg?logo=docker)](https://hub.docker.com/r/itzg/minecraft-server/)
+# Docker Minecraft Server for Pterodactyl Panel
+
+This is a fork of [itzg/docker-minecraft-server](https://github.com/itzg/docker-minecraft-server) customized for use with Pterodactyl Panel.
+
+## Pterodactyl Eggs
+
+Pterodactyl Panel eggs for this image can be found in [the eggs directory](eggs) of this repo:
+
+- [Vanilla](eggs/egg-itzg-vanilla.json)
+- [Forge](eggs/egg-itzg-forge.json)
+- [Fabric](eggs/egg-itzg-fabric.json)
+- [NeoForge](eggs/egg-itzg-neoforge.json)
+- [CurseForge](eggs/egg-itzg-curseforge.json)
+- [Modrinth](eggs/egg-itzg-modrinth.json)
+- [FTB](eggs/egg-itzg-ftb.json)
+
+> **Note:** The eggs contain the minimal required environment variables. For a complete list of all supported environment variables, please refer to the [documentation](https://docker-minecraft-server.readthedocs.io/).
+
+## Original README
+
 [![GitHub Issues](https://img.shields.io/github/issues-raw/itzg/docker-minecraft-server.svg)](https://github.com/itzg/docker-minecraft-server/issues)
 [![Discord](https://img.shields.io/discord/660567679458869252?label=Discord&logo=discord)](https://discord.gg/DXfKpjB)
 [![Build and Publish](https://github.com/itzg/docker-minecraft-server/actions/workflows/build-multiarch.yml/badge.svg)](https://github.com/itzg/docker-minecraft-server/actions/workflows/build-multiarch.yml)
@@ -18,4 +36,3 @@ There you will find things like
 
 There are also many examples located in [the examples directory](examples) of this repo.
 
-This image only supports Java edition natively; however, if looking for a server that is compatible with Bedrock edition, then use [itzg/minecraft-bedrock-server](https://github.com/itzg/docker-minecraft-bedrock-server) or [refer to this section](https://docker-minecraft-server.readthedocs.io/en/latest/misc/examples/#bedrock-compatible-server) to add Bedrock compatibility to a Java edition server.

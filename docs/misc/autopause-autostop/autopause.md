@@ -2,7 +2,7 @@
 
 !!! important
 
-    As of [1.21.2](https://minecraft.wiki/w/Java_Edition_1.21.2) it is not recommend to use this feature since Minecraft server natively auto-pauses when the server is empty. That is configured via the enivironment variable `PAUSE_WHEN_EMPTY_SECONDS`, which maps to the `pause-when-empty-seconds` server property. 
+    As of [1.21.2](https://minecraft.wiki/w/Java_Edition_1.21.2) it is not recommend to use this feature since Minecraft server natively auto-pauses when the server is empty. That is configured via the enivironment variable `PAUSE_WHEN_EMPTY_SECONDS`, which maps to the `pause-when-empty-seconds` server property.
 
 An auto-pause functionality is provided that monitors whether clients are connected to the server. If a client is not connected for a specified time, the Java process is put into a pause state. When a client attempts to connect while the process is paused, then process will be restored to a running state. The experience for the client does not change. This feature can be enabled by setting the environment variable `ENABLE_AUTOPAUSE` to "true".
 
@@ -16,13 +16,13 @@ An auto-pause functionality is provided that monitors whether clients are connec
 
 The utility used to wake the server (`knock(d)`) works at network interface level. So the correct interface has to be set using the `AUTOPAUSE_KNOCK_INTERFACE` variable when using non-default networking environments (e.g. host-networking, Portainer oder NAS solutions). See the description of the variable below.
 
-A file called `.paused` is created in `/data` directory when the server is paused and removed when the server is resumed. Other services may check for this file's existence before waking the server.
+A file called `.paused` is created in `/home/container` directory when the server is paused and removed when the server is resumed. Other services may check for this file's existence before waking the server.
 
-A `.skip-pause` file can be created in the `/data` directory to make the server skip autopausing, for as long as the file is present. The autopause timer will also be reset.
+A `.skip-pause` file can be created in the `/home/container` directory to make the server skip autopausing, for as long as the file is present. The autopause timer will also be reset.
 
 A starting, example compose file has been provided in [the examples](https://github.com/itzg/docker-minecraft-server/blob/master/examples/autopause/compose.yml).
 
-!!! note 
+!!! note
 
     When configuring kubernetes readiness/liveness health checks with auto-pause enabled, be sure to reference the `mc-health` wrapper script rather than `mc-status` directly.
 
@@ -49,7 +49,7 @@ The following environment variables define the behaviour of auto-pausing:
 
 ## Rootless Auto-Pause
 
-If you're running the container as rootless, then it is necessary to add the `CAP_NET_RAW` capability to the container, such as using [the `cap_add` service field](https://docs.docker.com/compose/compose-file/05-services/#cap_add) in a compose file or [`--cap-add` docker run argument](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). It may also be necessary to set the environment variable `SKIP_SUDO` to "true". 
+If you're running the container as rootless, then it is necessary to add the `CAP_NET_RAW` capability to the container, such as using [the `cap_add` service field](https://docs.docker.com/compose/compose-file/05-services/#cap_add) in a compose file or [`--cap-add` docker run argument](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). It may also be necessary to set the environment variable `SKIP_SUDO` to "true".
 
 You might need to set change the default port forwarder from RootlessKit to slirp4netns.
 

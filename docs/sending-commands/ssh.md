@@ -14,11 +14,11 @@ The SSH server runs on port `2222` inside the container.
 
     !!! warning "Security Implications"
         By default, publishing ports in Docker binds them to all network interfaces (`0.0.0.0`), making the SSH console accessible to any device that can reach your host machine.
-        
-        Since the SSH console grants **full administrative access** to your server, it is critical to use a strong [RCON password](../configuration/server-properties.md/#rcon-password). 
-        
+
+        Since the SSH console grants **full administrative access** to your server, it is critical to use a strong [RCON password](../configuration/server-properties.md/#rcon-password).
+
         If you wish to restrict access to the local machine only, refer to the [Docker documentation](https://docs.docker.com/engine/network/port-publishing/#publishing-ports) on binding to specific IP addresses (e.g., `127.0.0.1:2222:2222`).
-      
+
         If SSH access is only intended for inter-container connections, consider **NOT** forwarding the port to the host machine, and putting the containers in a shared [Docker network](https://docs.docker.com/engine/network/#user-defined-networks).
 
     ```yaml title="compose.yaml"
@@ -49,7 +49,7 @@ and typing in the RCON password.
 ```yaml title="compose.yaml"
 services:
   mc:
-    image: itzg/minecraft-server:latest
+    image: energypatrikhu/pterodactyl-minecraft-server:latest
     pull_policy: daily
     tty: true
     stdin_open: true
@@ -61,9 +61,9 @@ services:
       ENABLE_SSH: true
       RCON_PASSWORD_FILE: /run/secrets/rcon_pass
     volumes:
-      # attach the relative directory 'data' to the container's /data path
-      - ./data:/data
-    
+      # attach the relative directory 'data' to the container's /home/container path
+      - ./home/container:/home/container
+
 secrets:
   rcon_pass:
     file: ./rcon_password

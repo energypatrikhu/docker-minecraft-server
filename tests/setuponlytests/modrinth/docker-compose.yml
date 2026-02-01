@@ -1,6 +1,6 @@
 services:
   mc:
-    image: ${IMAGE_TO_TEST:-itzg/minecraft-server}
+    image: ${IMAGE_TO_TEST:-energypatrikhu/pterodactyl-minecraft-server}
     environment:
       EULA: "true"
       SETUP_ONLY: "true"
@@ -8,4 +8,4 @@ services:
       VERSION: 1.21.4
       MODRINTH_PROJECTS: fabric-api,cloth-config
     volumes:
-      - ./data:/data
+      - ./home/container:/home/container

@@ -7,7 +7,7 @@
 # shellcheck source=start-utils
 . "$(dirname "$0")/start-utils"
 isDebugging && set -x
-baseDataDir=/data
+baseDataDir=/home/container
 tmpServerIconPath=/tmp/icon.img
 serverIconPath=${baseDataDir}/server-icon.png
 mcHealthEnvPath=${baseDataDir}/.mc-health.env
@@ -108,7 +108,7 @@ LOGFILE="${SERVER_DIR}/log4j2.xml"
 if ${useGeneratedLogs}; then
   # Set up log configuration defaults
   : "${LOG_LEVEL:=info}"
-  : "${ROLLING_LOG_MAX_FILES:=1000}"
+  : "${ROLLING_LOG_MAX_FILES:=988}"
   # Note: Can't use ${VAR:=default} syntax for values containing } as it breaks parsing
   if [ -z "${ROLLING_LOG_FILE_PATTERN}" ]; then
     ROLLING_LOG_FILE_PATTERN='logs/%d{yyyy-MM-dd}-%i.log.gz'

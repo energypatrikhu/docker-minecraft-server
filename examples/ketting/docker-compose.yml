@@ -1,6 +1,6 @@
 services:
   mc:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     environment:
       EULA: true
       TYPE: KETTING

@@ -5,8 +5,8 @@
 set -e
 isDebugging && set -x
 
-worldDownload=/data/tmp/world.zip
-tmpWorldData=/data/tmp/world-data
+worldDownload=/home/container/tmp/world.zip
+tmpWorldData=/home/container/tmp/world-data
 
 # support absolute directories
 if [[ "${LEVEL:-world}" =~ ^\/.*$ ]]; then
@@ -15,7 +15,7 @@ else
   if [ "$TYPE" = "CURSEFORGE" ]; then
     worldDest=$FTB_DIR/${LEVEL:-world}
   else
-    worldDest=/data/${LEVEL:-world}
+    worldDest=/home/container/${LEVEL:-world}
   fi
 fi
 
@@ -29,7 +29,7 @@ if [[ "$WORLD" ]] && ( isTrue "${FORCE_WORLD_COPY}" || [ ! -d "$worldDest" ] ); 
 
   if isURL "$WORLD"; then
     log "Downloading world from $WORLD"
-    mkdir -p /data/tmp
+    mkdir -p /home/container/tmp
     if ! get -o ${worldDownload} "$WORLD"; then
       logError "Failed to download world from $WORLD"
       exit 1

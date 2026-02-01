@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-: "${IMAGE_TO_TEST:=itzg/minecraft-server}"
+: "${IMAGE_TO_TEST:=energypatrikhu/pterodactyl-minecraft-server}"
 
 # go to script root directory
 cd "$(dirname "$0")" || exit 1
@@ -52,7 +52,7 @@ setupOnlyMinecraftTest(){
     result=1
   elif [ -f verify.sh ]; then
     verify=" verify"
-    if ! docker run --rm --entrypoint bash -v "${PWD}/data":/data -v "${PWD}/verify.sh":/verify "${IMAGE_TO_TEST}" -e /verify; then
+    if ! docker run --rm --entrypoint bash -v "${PWD}/home/container":/home/container -v "${PWD}/verify.sh":/verify "${IMAGE_TO_TEST}" -e /verify; then
       status=FAILED
       outputContainerLog "$logs"
       result=1

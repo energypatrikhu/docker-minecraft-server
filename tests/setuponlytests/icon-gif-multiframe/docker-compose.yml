@@ -4,8 +4,7 @@ services:
     volumes:
       - ./web:/usr/share/nginx/html
     healthcheck:
-      test:
-        ["CMD", "curl", "--fail", "http://localhost/motion-tween-example.gif"]
+      test: ["CMD", "curl", "--fail", "http://localhost/motion-tween-example.gif"]
       interval: 3s
       timeout: 5s
       retries: 3
@@ -13,7 +12,7 @@ services:
     depends_on:
       web:
         condition: service_healthy
-    image: ${IMAGE_TO_TEST:-itzg/minecraft-server}
+    image: ${IMAGE_TO_TEST:-energypatrikhu/pterodactyl-minecraft-server}
     environment:
       EULA: "true"
       SETUP_ONLY: "true"
@@ -23,5 +22,5 @@ services:
       CUSTOM_SERVER: /servers/fake.jar
       VERSION: 1.18.1
     volumes:
-      - ./data:/data
+      - ./home/container:/home/container
       - ./fake.jar:/servers/fake.jar

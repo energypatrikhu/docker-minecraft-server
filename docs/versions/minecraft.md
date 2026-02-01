@@ -19,8 +19,8 @@ docker run -d -e VERSION=1.7.9 ...
 
 When using "LATEST" or "SNAPSHOT" an upgrade can be performed by simply restarting the container.
 During the next startup, if a newer version is available from the respective release channel, then
-the new server jar file is downloaded and used. 
+the new server jar file is downloaded and used.
 
 !!! note
 
-    Over time you might see older versions of the server jar remain in the `/data` directory. It is safe to remove those.
+    Over time you might see older versions of the server jar remain in the `/home/container` directory. It is safe to remove those.

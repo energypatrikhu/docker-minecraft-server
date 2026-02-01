@@ -1,6 +1,6 @@
 services:
   mc:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     tty: true
     stdin_open: true
     ports:
@@ -10,7 +10,7 @@ services:
       TYPE: FABRIC
       MODRINTH_PROJECTS: fallingtree
     volumes:
-      - data:/data
+      - data:/home/container
 
 volumes:
   data: {}

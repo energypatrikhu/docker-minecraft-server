@@ -1,7 +1,7 @@
 # This runs the most recent version of Roguelike Adventures and Dungeons 2. Version 1.11 as of writing.
 services:
   mc:
-    image: itzg/minecraft-server:java8
+    image: energypatrikhu/pterodactyl-minecraft-server:java8
     ports:
       - "25565:25565"
     environment:
@@ -25,7 +25,7 @@ services:
       CF_FORCE_SYNCHRONIZE: "true"
       MEMORY: 4G
     volumes:
-      - mc-data:/data
+      - mc-data:/home/container
       - C:\Users\geoff\git\mc-image-helper\build\install\mc-image-helper:/usr/share/mc-image-helper:ro
 
 volumes:

@@ -1,6 +1,6 @@
 services:
   mc:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     environment:
       EULA: true
       MODPACK_PLATFORM: MODRINTH
@@ -13,8 +13,8 @@ services:
     ports:
       - "25565:25565"
     volumes:
-      - mc-data:/data
+      - mc-data:/home/container
       # or use a host directory binding
-#      - ./data:/data
+#      - ./home/container:/home/container
 volumes:
   mc-data:

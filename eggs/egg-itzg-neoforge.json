@@ -1,0 +1,796 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-01-22T13:44:57+01:00",
+  "name": "itzg neoforge",
+  "author": "energypatrikhu@proton.me",
+  "description": null,
+  "features": [],
+  "docker_images": {
+    "Java 25": "ghcr.io\/energypatrikhu\/pterodactyl-minecraft-server:java25",
+    "Java 21": "ghcr.io\/energypatrikhu\/pterodactyl-minecraft-server:java21",
+    "Java 17": "ghcr.io\/energypatrikhu\/pterodactyl-minecraft-server:java17",
+    "Java 11": "ghcr.io\/energypatrikhu\/pterodactyl-minecraft-server:java11",
+    "Java 8": "ghcr.io\/energypatrikhu\/pterodactyl-minecraft-server:java8"
+  },
+  "file_denylist": [],
+  "startup": "\/image\/scripts\/start",
+  "config": {
+    "files": "{}",
+    "startup": "{}",
+    "logs": "{}",
+    "stop": "stop"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!\/bin\/bash\r\n\r\napk add curl --no-cache\r\n\r\nif [ ! -d \/mnt\/server ]; then\r\n  mkdir -p \/mnt\/server\r\nfi\r\ncd \/mnt\/server\r\n\r\nif [ ! -f .pteroignore ]; then\r\n  curl -sSL -o .pteroignore https:\/\/raw.githubusercontent.com\/energypatrikhu\/pterodactyl-minecraft-server\/refs\/heads\/master\/eggs\/.pteroignore\r\nfi",
+      "container": "alpine:3.4",
+      "entrypoint": "ash"
+    }
+  },
+  "variables": [
+    {
+      "name": "TYPE",
+      "description": "The server type",
+      "env_variable": "TYPE",
+      "default_value": "NEOFORGE",
+      "user_viewable": false,
+      "user_editable": false,
+      "rules": "required|string",
+      "field_type": "text"
+    },
+    {
+      "name": "VERSION",
+      "description": "The Minecraft version to use.",
+      "env_variable": "VERSION",
+      "default_value": "1.12.2",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string",
+      "field_type": "text"
+    },
+    {
+      "name": "NEOFORGE_VERSION",
+      "description": "The NeoForge version to use. Can be set to a specific version, \"latest\" or \"beta\".",
+      "env_variable": "NEOFORGE_VERSION",
+      "default_value": "beta",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string",
+      "field_type": "text"
+    },
+    {
+      "name": "CURSEFORGE_FILES",
+      "description": "CurseForge mods to install, separated by comma. Example: modID:version,modID:version (version is optional)",
+      "env_variable": "CURSEFORGE_FILES",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "MODRINTH_PROJECTS",
+      "description": "Modrinth projects to install, separated by comma. Example: fabric-api,cloth-config-fabric",
+      "env_variable": "MODRINTH_PROJECTS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "MODRINTH_DOWNLOAD_DEPENDENCIES",
+      "description": "Can be set to none, required, or optional to download required and/or optional dependencies.",
+      "env_variable": "MODRINTH_DOWNLOAD_DEPENDENCIES",
+      "default_value": "optional",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:none,required,optional",
+      "field_type": "text"
+    },
+    {
+      "name": "MODRINTH_PROJECTS_DEFAULT_VERSION_TYPE",
+      "description": "The version type is used to determine the newest version to use from each project. The allowed values are release (default), beta, alpha. Setting to beta will pick up both release and beta versions. Setting to alpha will pick up release, beta, and alpha versions.",
+      "env_variable": "MODRINTH_PROJECTS_DEFAULT_VERSION_TYPE",
+      "default_value": "release",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:release,beta,alpha",
+      "field_type": "text"
+    },
+    {
+      "name": "MEMORY",
+      "description": "The image declares an initial and maximum Java memory-heap limit.",
+      "env_variable": "MEMORY",
+      "default_value": "4G",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string",
+      "field_type": "text"
+    },
+    {
+      "name": "JVM_OPTS",
+      "description": "General JVM options can be passed to the Minecraft Server invocation by passing a JVM_OPTS environment variable. The JVM requires -XX options to precede -X options, so those can be declared in JVM_XX_OPTS. Both variables are space-delimited, raw JVM arguments",
+      "env_variable": "JVM_OPTS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "JVM_XX_OPTS",
+      "description": "General JVM options can be passed to the Minecraft Server invocation by passing a JVM_OPTS environment variable. The JVM requires -XX options to precede -X options, so those can be declared in JVM_XX_OPTS. Both variables are space-delimited, raw JVM arguments",
+      "env_variable": "JVM_XX_OPTS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "JVM_DD_OPTS",
+      "description": "As a shorthand for passing several system properties as -D arguments, you can instead pass a comma separated list of name=value or name:value pairs with JVM_DD_OPTS. (The colon syntax is provided for management platforms like Plesk that don't allow = inside a value.)",
+      "env_variable": "JVM_DD_OPTS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "EXTRA_ARGS",
+      "description": "Arguments that would usually be passed to the jar file (those which are written after the filename)",
+      "env_variable": "EXTRA_ARGS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "ENABLE_WHITELIST",
+      "description": "If managing the whitelist file manually, ENABLE_WHITELIST can be set to \"true\" to set the white-list property.",
+      "env_variable": "ENABLE_WHITELIST",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "ENFORCE_WHITELIST",
+      "description": "To enforce the whitelist changes immediately when whitelist commands are used , set ENFORCE_WHITELIST to \"true\".",
+      "env_variable": "ENFORCE_WHITELIST",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "WHITELIST",
+      "description": "A list of usernames and\/or UUIDs separated by comma to be whitelisted if ENABLE_WHITELIST is set to true",
+      "env_variable": "WHITELIST",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "OPS",
+      "description": "A list of usernames and\/or UUIDs separated by comma to be added as server operators",
+      "env_variable": "OPS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "LOG_TIMESTAMP",
+      "description": "To include the timestamp with each log set to true",
+      "env_variable": "LOG_TIMESTAMP",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "EULA",
+      "description": "EULA",
+      "env_variable": "EULA",
+      "default_value": "true",
+      "user_viewable": false,
+      "user_editable": false,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "STOP_SERVER_ANNOUNCE_DELAY",
+      "description": "To allow time for players to finish what they're doing during a graceful server shutdown, set STOP_SERVER_ANNOUNCE_DELAY to a number of seconds to delay after an announcement is posted by the server.",
+      "env_variable": "STOP_SERVER_ANNOUNCE_DELAY",
+      "default_value": "10",
+      "user_viewable": false,
+      "user_editable": false,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "STOP_DURATION",
+      "description": "When the container is signalled to stop, the Minecraft process wrapper will attempt to send a \"stop\" command via RCON or console and waits for the process to gracefully finish.",
+      "env_variable": "STOP_DURATION",
+      "default_value": "10",
+      "user_viewable": false,
+      "user_editable": false,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "CF_API_KEY",
+      "description": "CurseForge (Eternal) API Key.",
+      "env_variable": "CF_API_KEY",
+      "default_value": "$2a$10$mYiG9brVg9LuZ0NFZ8Ghv.KsAue/iBmkq2Vw/IX2jjXlNEnFU/4PS",
+      "user_viewable": false,
+      "user_editable": false,
+      "rules": "required|string",
+      "field_type": "text"
+    },
+    {
+      "name": "LOG_IPS",
+      "description": "Log player IP addresses.",
+      "env_variable": "LOG_IPS",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "ENABLE_ROLLING_LOGS",
+      "description": "Enable rolling logs to avoid large log files.",
+      "env_variable": "ENABLE_ROLLING_LOGS",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "EXEC_DIRECTLY",
+      "description": "Execute the server directly instead of through a wrapper.",
+      "env_variable": "EXEC_DIRECTLY",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "GUI",
+      "description": "Enable or disable the graphical user interface.",
+      "env_variable": "GUI",
+      "default_value": "false",
+      "user_viewable": false,
+      "user_editable": false,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "ACCEPTS_TRANSFERS",
+      "description": "Whether the server accepts transfers from other servers.",
+      "env_variable": "ACCEPTS_TRANSFERS",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "ALLOW_FLIGHT",
+      "description": "Allows users to use flight mode if they have a speed modifier installed.",
+      "env_variable": "ALLOW_FLIGHT",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "ALLOW_NETHER",
+      "description": "Allows players to travel to the Nether.",
+      "env_variable": "ALLOW_NETHER",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "BROADCAST_CONSOLE_TO_OPS",
+      "description": "Broadcast console messages to ops.",
+      "env_variable": "BROADCAST_CONSOLE_TO_OPS",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "BROADCAST_RCON_TO_OPS",
+      "description": "Broadcast RCON messages to ops.",
+      "env_variable": "BROADCAST_RCON_TO_OPS",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "BUG_REPORT_LINK",
+      "description": "The URL to which the player is taken if they click the bug report button in the pause menu.",
+      "env_variable": "BUG_REPORT_LINK",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "DIFFICULTY",
+      "description": "The difficulty level. Available values: peaceful,easy,normal,hard",
+      "env_variable": "DIFFICULTY",
+      "default_value": "hard",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:peaceful,easy,normal,hard",
+      "field_type": "text"
+    },
+    {
+      "name": "ENABLE_COMMAND_BLOCK",
+      "description": "Enable the command block.",
+      "env_variable": "ENABLE_COMMAND_BLOCK",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "ENABLE_STATUS",
+      "description": "Enables the server status shown in the server list.",
+      "env_variable": "ENABLE_STATUS",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "ENFORCE_SECURE_PROFILE",
+      "description": "Enforce secure player profile.",
+      "env_variable": "ENFORCE_SECURE_PROFILE",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "ENTITY_BROADCAST_RANGE_PERCENTAGE",
+      "description": "Entity broadcast range percentage.",
+      "env_variable": "ENTITY_BROADCAST_RANGE_PERCENTAGE",
+      "default_value": "100",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "FORCE_GAMEMODE",
+      "description": "Force players to join in the default game mode.",
+      "env_variable": "FORCE_GAMEMODE",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "FUNCTION_PERMISSION_LEVEL",
+      "description": "Function permission level.",
+      "env_variable": "FUNCTION_PERMISSION_LEVEL",
+      "default_value": "2",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "GENERATE_STRUCTURES",
+      "description": "Defines whether structures (such as villages) will be generated.",
+      "env_variable": "GENERATE_STRUCTURES",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "GENERATOR_SETTINGS",
+      "description": "Generator settings for custom worlds.",
+      "env_variable": "GENERATOR_SETTINGS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "HARDCORE",
+      "description": "If set to true, players will be set to spectator mode if they die.",
+      "env_variable": "HARDCORE",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "HIDE_ONLINE_PLAYERS",
+      "description": "Hide the online players from the server list.",
+      "env_variable": "HIDE_ONLINE_PLAYERS",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "ICON",
+      "description": "The server icon URL.",
+      "env_variable": "ICON",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "LEVEL",
+      "description": "Maps to [the `level-name` server property](https:\/\/minecraft.wiki\/w\/Server.properties#level-name). You can either switch between world saves or run multiple containers with different saves by using the LEVEL option",
+      "env_variable": "LEVEL",
+      "default_value": "world",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string",
+      "field_type": "text"
+    },
+    {
+      "name": "LEVEL_TYPE",
+      "description": "Determines the world type to be generated.",
+      "env_variable": "LEVEL_TYPE",
+      "default_value": "normal",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string",
+      "field_type": "text"
+    },
+    {
+      "name": "MAX_CHAINED_NEIGHBOR_UPDATES",
+      "description": "Limits the maximum number of rapid block updates without physics to prevent lag.",
+      "env_variable": "MAX_CHAINED_NEIGHBOR_UPDATES",
+      "default_value": "1000000",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "MAX_PLAYERS",
+      "description": "The maximum number of players that can play on the server at the same time.",
+      "env_variable": "MAX_PLAYERS",
+      "default_value": "8",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "MAX_TICK_TIME",
+      "description": "Sets the maximum number of milliseconds a single tick may take before the server watchdog stops the server with a crash.",
+      "env_variable": "MAX_TICK_TIME",
+      "default_value": "-1",
+      "user_viewable": false,
+      "user_editable": false,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "MAX_WORLD_SIZE",
+      "description": "This sets the maximum possible size in blocks, expressed as a radius, that the world border can obtain.",
+      "env_variable": "MAX_WORLD_SIZE",
+      "default_value": "29999984",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "MODE",
+      "description": "The default game mode for new players.",
+      "env_variable": "MODE",
+      "default_value": "survival",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:survival,creative,adventure,spectator",
+      "field_type": "text"
+    },
+    {
+      "name": "MOTD",
+      "description": "Set the server log in message.",
+      "env_variable": "MOTD",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "NETWORK_COMPRESSION_THRESHOLD",
+      "description": "By default allows packet compression for packets larger than 256 bytes.",
+      "env_variable": "NETWORK_COMPRESSION_THRESHOLD",
+      "default_value": "256",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "ONLINE_MODE",
+      "description": "Server checks connecting players against Minecraft's account database.",
+      "env_variable": "ONLINE_MODE",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "OP_PERMISSION_LEVEL",
+      "description": "Sets the default permission level for operators.",
+      "env_variable": "OP_PERMISSION_LEVEL",
+      "default_value": "4",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "OVERRIDE_ICON",
+      "description": "Override the server icon.",
+      "env_variable": "OVERRIDE_ICON",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "PAUSE_WHEN_EMPTY_SECONDS",
+      "description": "Stop the server when no players are connected for this many seconds.",
+      "env_variable": "PAUSE_WHEN_EMPTY_SECONDS",
+      "default_value": "-1",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "PLAYER_IDLE_TIMEOUT",
+      "description": "The idle timeout in minutes.",
+      "env_variable": "PLAYER_IDLE_TIMEOUT",
+      "default_value": "0",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "PREVENT_PROXY_CONNECTIONS",
+      "description": "If set to true, the server will not allow players to connect via proxy servers.",
+      "env_variable": "PREVENT_PROXY_CONNECTIONS",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "PVP",
+      "description": "Enable or disable player versus player combat",
+      "env_variable": "PVP",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "RATE_LIMIT",
+      "description": "Sets the number of milliseconds between consecutive logins.",
+      "env_variable": "RATE_LIMIT",
+      "default_value": "0",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "REGION_FILE_COMPRESSION",
+      "description": "The type of compression used for region files.",
+      "env_variable": "REGION_FILE_COMPRESSION",
+      "default_value": "lz4",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:deflate,lz4,none",
+      "field_type": "text"
+    },
+    {
+      "name": "RESOURCE_PACK",
+      "description": "The URL to the resource pack.",
+      "env_variable": "RESOURCE_PACK",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "RESOURCE_PACK_ENFORCE",
+      "description": "Enforce the use of the resource pack on the client side.",
+      "env_variable": "RESOURCE_PACK_ENFORCE",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "RESOURCE_PACK_ID",
+      "description": "The ID of the resource pack.",
+      "env_variable": "RESOURCE_PACK_ID",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "RESOURCE_PACK_PROMPT",
+      "description": "Optional prompt message shown to players when they decline a resource pack.",
+      "env_variable": "RESOURCE_PACK_PROMPT",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "RESOURCE_PACK_SHA1",
+      "description": "The SHA1 hash of the resource pack file.",
+      "env_variable": "RESOURCE_PACK_SHA1",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "SEED",
+      "description": "The seed to use for generating the world.",
+      "env_variable": "SEED",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "SERVER_NAME",
+      "description": "The name of the server.",
+      "env_variable": "SERVER_NAME",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "SIMULATION_DISTANCE",
+      "description": "Sets the maximum distance from players that the server-side chunk simulation distance is based on.",
+      "env_variable": "SIMULATION_DISTANCE",
+      "default_value": "8",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "SNOOPER_ENABLED",
+      "description": "Allow the server to send snoop data regularly to the Mojang server.",
+      "env_variable": "SNOOPER_ENABLED",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "SPAWN_MONSTERS",
+      "description": "Determines if monsters will be spawned.",
+      "env_variable": "SPAWN_MONSTERS",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "SPAWN_PROTECTION",
+      "description": "Determines the side length of the square spawn protection area.",
+      "env_variable": "SPAWN_PROTECTION",
+      "default_value": "0",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "STATUS_HEARTBEAT_INTERVAL",
+      "description": "Sets the interval in seconds between status heartbeats.",
+      "env_variable": "STATUS_HEARTBEAT_INTERVAL",
+      "default_value": "0",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer",
+      "field_type": "text"
+    },
+    {
+      "name": "SYNC_CHUNK_WRITES",
+      "description": "Enables synchronous chunk writes.",
+      "env_variable": "SYNC_CHUNK_WRITES",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "USE_NATIVE_TRANSPORT",
+      "description": "Use native transport for the network.",
+      "env_variable": "USE_NATIVE_TRANSPORT",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "VIEW_DISTANCE",
+      "description": "Sets the default view distance for players.",
+      "env_variable": "VIEW_DISTANCE",
+      "default_value": "8",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer",
+      "field_type": "text"
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 services:
   mc:
-    image: itzg/minecraft-server:java8-multiarch
+    image: energypatrikhu/pterodactyl-minecraft-server:java8-multiarch
     volumes:
-      - data:/data
+      - data:/home/container
       - ./modpacks:/modpacks:ro
     environment:
       EULA: "true"

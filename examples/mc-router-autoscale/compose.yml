@@ -22,7 +22,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
   vanilla:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     environment:
       EULA: "TRUE"
     labels:
@@ -30,7 +30,7 @@ services:
       # auto-scale without any additional auto-scale related configuration
       mc-router.host: "vanilla.example.com"
   fabric:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     environment:
       EULA: "TRUE"
       TYPE: FABRIC
@@ -40,7 +40,7 @@ services:
       mc-router.auto-scale-up: false
       mc-router.auto-scale-down: false
   paper:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     environment:
       EULA: "TRUE"
       TYPE: PAPER

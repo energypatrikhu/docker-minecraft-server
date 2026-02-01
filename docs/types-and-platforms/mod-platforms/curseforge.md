@@ -12,24 +12,24 @@ client modpack at <https://www.curseforge.com/minecraft/modpacks> .
 
 Now you can add a `-e CF_SERVER_MOD=name_of_modpack.zip` to your command-line.
 ```shell
-docker run -d --pull=always -v /path/on/host:/data -e TYPE=CURSEFORGE \
+docker run -d --pull=always -v /path/on/host:/home/container -e TYPE=CURSEFORGE \
     -e CF_SERVER_MOD=SkyFactory_4_Server_4.1.0.zip \
-    -p 25565:25565 -e EULA=TRUE --name mc itzg/minecraft-server
+    -p 25565:25565 -e EULA=TRUE --name mc energypatrikhu/pterodactyl-minecraft-server
 ```
 If you want to keep the pre-download modpacks separate from your data directory,
 then you can attach another volume at a path of your choosing and reference that.
 The following example uses `/modpacks` as the container path as the pre-download area:
 ```shell
-docker run -d --pull=always -v /path/on/host:/data \
+docker run -d --pull=always -v /path/on/host:/home/container \
     -v /path/to/modpacks:/modpacks -e TYPE=CURSEFORGE \
     -e CF_SERVER_MOD=/modpacks/SkyFactory_4_Server_4.1.0.zip \
-    -p 25565:25565 -e EULA=TRUE --name mc itzg/minecraft-server
+    -p 25565:25565 -e EULA=TRUE --name mc energypatrikhu/pterodactyl-minecraft-server
 ```
 ### Modpack data directory
 
-By default, CurseForge modpacks are expanded into the sub-directory `/data/FeedTheBeast` and executed from there. (The default location was chosen for legacy reasons, when Curse and FTB were maintained together.)
+By default, CurseForge modpacks are expanded into the sub-directory `/home/container/FeedTheBeast` and executed from there. (The default location was chosen for legacy reasons, when Curse and FTB were maintained together.)
 
-The directory can be changed by setting `CF_BASE_DIR`, such as `-e CF_BASE_DIR=/data`.
+The directory can be changed by setting `CF_BASE_DIR`, such as `-e CF_BASE_DIR=/home/container`.
 
 ### Buggy start scripts
 

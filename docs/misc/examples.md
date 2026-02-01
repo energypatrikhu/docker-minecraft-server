@@ -4,13 +4,13 @@ Various examples are [maintained in the repository](https://github.com/itzg/dock
 
 ## Bedrock compatible server
 
-Using the [GeyserMC plugin](https://geysermc.org/) with a Paper server (or similar) "enables clients from Minecraft Bedrock Edition to join your Minecraft Java server". The example also includes [Floodgate](https://wiki.geysermc.org/floodgate/) which "allows Xbox Live authenticated Bedrock users to join without a Java Edition account". 
+Using the [GeyserMC plugin](https://geysermc.org/) with a Paper server (or similar) "enables clients from Minecraft Bedrock Edition to join your Minecraft Java server". The example also includes [Floodgate](https://wiki.geysermc.org/floodgate/) which "allows Xbox Live authenticated Bedrock users to join without a Java Edition account".
 
 ```yaml title="compose.yaml"
 
 services:
   mc:
-    image: itzg/minecraft-server:latest
+    image: energypatrikhu/pterodactyl-minecraft-server:latest
     pull_policy: daily
     environment:
       EULA: "true"
@@ -22,7 +22,7 @@ services:
       - "25565:25565"
       - "19132:19132/udp"
     volumes:
-      - ./data:/data
+      - ./home/container:/home/container
 ```
 
 [Source](https://github.com/itzg/docker-minecraft-server/blob/master/examples/geyser/docker-compose.yml)
@@ -50,14 +50,14 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
   vanilla:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     environment:
       EULA: "TRUE"
     labels:
       mc-router.host: "vanilla.example.com"
 
   paper:
-    image: itzg/minecraft-server
+    image: energypatrikhu/pterodactyl-minecraft-server
     environment:
       EULA: "TRUE"
       TYPE: PAPER
@@ -84,12 +84,12 @@ With [lazymc-docker-proxy](https://github.com/joesturge/lazymc-docker-proxy) you
 # See the readme for more information.
 #
 # Please ensure that the subnet falls within the private CIDRs:
-# https://datatracker.ietf.org/doc/html/rfc1918#section-3
+# https://home/containertracker.ietf.org/doc/html/rfc1918#section-3
 #
 # And that it is not in use by anything else.
 networks:
   minecraft-network:
-    driver: bridge    
+    driver: bridge
     ipam:
       config:
         - subnet: 172.18.0.0/16
@@ -114,7 +114,7 @@ services:
 
   # Standard Docker Minecraft server, also works with other server types
   mc:
-    image: itzg/minecraft-server:java21
+    image: energypatrikhu/pterodactyl-minecraft-server:java21
     pull_policy: daily
     # Assign a static IP to the server container
     networks:
@@ -137,7 +137,7 @@ services:
     environment:
       EULA: "TRUE"
     volumes:
-      - data:/data
+      - data:/home/container
 
 volumes:
   data:
@@ -167,14 +167,14 @@ services:
     restart: unless-stopped
     network_mode: bridge
   mc:
-    image: itzg/minecraft-server:latest
+    image: energypatrikhu/pterodactyl-minecraft-server:latest
     pull_policy: daily
     environment:
       EULA: TRUE
       TYPE: PAPER
       MEMORY: 4G
     volumes:
-      - ./data:/data
+      - ./home/container:/home/container
     labels:
       - lazytainer.group=minecraft
     depends_on:

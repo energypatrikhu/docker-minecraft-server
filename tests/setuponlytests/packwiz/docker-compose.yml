@@ -12,7 +12,7 @@ services:
     depends_on:
       web:
         condition: service_healthy
-    image: ${IMAGE_TO_TEST:-itzg/minecraft-server}
+    image: ${IMAGE_TO_TEST:-energypatrikhu/pterodactyl-minecraft-server}
     environment:
       EULA: "true"
       PACKWIZ_URL: http://web/pack.toml
@@ -21,5 +21,5 @@ services:
       VERSION: 1.19
       DEBUG_HELPER: "true"
     volumes:
-      - ./data:/data
+      - ./home/container:/home/container
       - ./fake.jar:/servers/fake.jar

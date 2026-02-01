@@ -19,13 +19,13 @@
         <tr>
             <td><code>UID</code></td>
             <td>The linux user id to run as</td>
-            <td><code>1000</code></td>
+            <td><code>988</code></td>
             <td>⬜️</td>
         </tr>
         <tr>
             <td><code>GID</code></td>
             <td>The linux group id to run as</td>
-            <td><code>1000</code></td>
+            <td><code>988</code></td>
             <td>⬜️</td>
         </tr>
         <tr>
@@ -90,7 +90,7 @@ alternatively, you can mount: <code>/etc/localtime:/etc/localtime:ro
         <tr>
             <td><code>ROLLING_LOG_MAX_FILES</code></td>
             <td>Maximum number of archived log files to keep</td>
-            <td><code>1000</code></td>
+            <td><code>988</code></td>
             <td>⬜️</td>
         </tr>
         <tr>

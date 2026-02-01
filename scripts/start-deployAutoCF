@@ -25,7 +25,7 @@ set -eu
 : "${CF_API_KEY_FILE:=}" # Path to file containing CurseForge API key
 : "${CF_MOD_LOADER_VERSION:=}" # Override mod loader version
 
-resultsFile=/data/.install-curseforge.env
+resultsFile=/home/container/.install-curseforge.env
 
 if [[ -n ${CF_API_KEY_FILE} ]]; then
   if [[ -r "${CF_API_KEY_FILE}" ]]; then

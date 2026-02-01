@@ -1,2 +1,2 @@
-mc-image-helper assert fileExists "/data/NanoLimbo*.jar"
-mc-image-helper assert fileExists "/data/settings.yml"
+mc-image-helper assert fileExists "/home/container/NanoLimbo*.jar"
+mc-image-helper assert fileExists "/home/container/settings.yml"

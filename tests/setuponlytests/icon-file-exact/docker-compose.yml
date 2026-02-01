@@ -1,6 +1,6 @@
 services:
   mc:
-    image: ${IMAGE_TO_TEST:-itzg/minecraft-server}
+    image: ${IMAGE_TO_TEST:-energypatrikhu/pterodactyl-minecraft-server}
     environment:
       EULA: "true"
       SETUP_ONLY: "true"
@@ -10,6 +10,6 @@ services:
       CUSTOM_SERVER: /servers/fake.jar
       VERSION: 1.18.1
     volumes:
-      - ./data:/data
+      - ./home/container:/home/container
       - ./extra:/extra
       - ./fake.jar:/servers/fake.jar

@@ -14,9 +14,9 @@ mohistType="${TYPE,,}"
 mohistApiUrl="https://api.mohistmc.com/project/${mohistType}"
 mohistDownloadsPage="https://mohistmc.com/downloadSoftware?project=${mohistType}"
 
-if [[ "${MOHIST_BUILD}" != "lastSuccessfulBuild" ]] && [[ "${VERSION,,}" != latest ]] && [[ -f "/data/${mohistType}-${VERSION}-${MOHIST_BUILD}-server.jar" ]]; then
+if [[ "${MOHIST_BUILD}" != "lastSuccessfulBuild" ]] && [[ "${VERSION,,}" != latest ]] && [[ -f "/home/container/${mohistType}-${VERSION}-${MOHIST_BUILD}-server.jar" ]]; then
   log "Skipping Mohist build lookup since server jar exists"
-  SERVER="/data/${mohistType}-${VERSION}-${MOHIST_BUILD}-server.jar"
+  SERVER="/home/container/${mohistType}-${VERSION}-${MOHIST_BUILD}-server.jar"
 else
   if ! get --exists "${mohistApiUrl}/${VERSION}/builds"; then
     logError "${mohistType} builds do not exist for ${VERSION}"
@@ -45,7 +45,7 @@ else
     exit 1
   fi
 
-  SERVER="/data/${mohistType}-${VERSION}-${MOHIST_BUILD}-server.jar"
+  SERVER="/home/container/${mohistType}-${VERSION}-${MOHIST_BUILD}-server.jar"
   get --skip-existing -o "${SERVER}" "${downloadUrl}"
 fi
 

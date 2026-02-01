@@ -6,7 +6,7 @@ By far the easiest way to work with mod and plugins, especially large numbers of
 
 The following are some supported modpack platforms:
 
-- [Modrinth](../types-and-platforms/mod-platforms/modrinth-modpacks.md) 
+- [Modrinth](../types-and-platforms/mod-platforms/modrinth-modpacks.md)
 - [CurseForge](../types-and-platforms/mod-platforms/auto-curseforge.md)
 - [Feed the Beast](../types-and-platforms/mod-platforms/ftb.md)
 
@@ -25,7 +25,7 @@ Typically, mods needs to be installed in both the client and server; however, th
 There are optional volume paths that can be attached to supply content to be copied into the data area:
 
 `/plugins`
-: content in this directory is synchronized into `/data/plugins` for server types that use plugins, [as described above](#mods-vs-plugins). For special cases, the source can be changed by setting `COPY_PLUGINS_SRC` and destination by setting `COPY_PLUGINS_DEST`. If using a mod-based loader, such as Forge or Fabric, but a hybrid mod like [Cardboard](https://modrinth.com/mod/cardboard), then set `USES_PLUGINS` to have the automation utilize `/plugins` mount.
+: content in this directory is synchronized into `/home/container/plugins` for server types that use plugins, [as described above](#mods-vs-plugins). For special cases, the source can be changed by setting `COPY_PLUGINS_SRC` and destination by setting `COPY_PLUGINS_DEST`. If using a mod-based loader, such as Forge or Fabric, but a hybrid mod like [Cardboard](https://modrinth.com/mod/cardboard), then set `USES_PLUGINS` to have the automation utilize `/plugins` mount.
 
 !!! example "Using Cardboard plugins with Fabric"
 
@@ -40,14 +40,14 @@ There are optional volume paths that can be attached to supply content to be cop
     ```
 
 `/mods`
-: content in this directory is synchronized into `/data/mods` for server types that use mods, [as described above](#mods-vs-plugins). For special cases, the source can be changed by setting `COPY_MODS_SRC` and destination by setting `COPY_MODS_DEST`.
+: content in this directory is synchronized into `/home/container/mods` for server types that use mods, [as described above](#mods-vs-plugins). For special cases, the source can be changed by setting `COPY_MODS_SRC` and destination by setting `COPY_MODS_DEST`.
 
 `/config`
-: contents are synchronized into `/data/config` by default, but can be changed with `COPY_CONFIG_DEST`. For example, `-v ./config:/config -e COPY_CONFIG_DEST=/data` will allow you to copy over files like `bukkit.yml` and so on directly into the server directory. The source can be changed by setting `COPY_CONFIG_SRC`. Set `SYNC_SKIP_NEWER_IN_DESTINATION=false` if you want files from `/config` to take precedence over newer files in `/data/config`.
+: contents are synchronized into `/home/container/config` by default, but can be changed with `COPY_CONFIG_DEST`. For example, `-v ./config:/config -e COPY_CONFIG_DEST=/home/container` will allow you to copy over files like `bukkit.yml` and so on directly into the server directory. The source can be changed by setting `COPY_CONFIG_SRC`. Set `SYNC_SKIP_NEWER_IN_DESTINATION=false` if you want files from `/config` to take precedence over newer files in `/home/container/config`.
 
 By default, the [environment variable processing](../configuration/interpolating.md) is performed on synchronized files that match the expected suffixes in `REPLACE_ENV_SUFFIXES` (by default "yml,yaml,txt,cfg,conf,properties,hjson,json,tml,toml") and are not excluded by `REPLACE_ENV_VARIABLES_EXCLUDES` and `REPLACE_ENV_VARIABLES_EXCLUDE_PATHS`. This processing can be disabled by setting `REPLACE_ENV_DURING_SYNC` to `false`.
 
-If you want old mods/plugins to be removed before the content is brought over from those attach points, then add `-e REMOVE_OLD_MODS=TRUE`. You can fine tune the removal process by specifying the `REMOVE_OLD_MODS_INCLUDE` and `REMOVE_OLD_MODS_EXCLUDE` variables, which are comma separated lists of file glob patterns. If a directory is excluded, then it and all of its contents are excluded. By default, only jars are removed. 
+If you want old mods/plugins to be removed before the content is brought over from those attach points, then add `-e REMOVE_OLD_MODS=TRUE`. You can fine tune the removal process by specifying the `REMOVE_OLD_MODS_INCLUDE` and `REMOVE_OLD_MODS_EXCLUDE` variables, which are comma separated lists of file glob patterns. If a directory is excluded, then it and all of its contents are excluded. By default, only jars are removed.
 
 You can also specify the `REMOVE_OLD_MODS_DEPTH` (default is 16) variable to only delete files up to a certain level.
 
@@ -60,7 +60,7 @@ These paths work well if you want to have a common set of modules in a separate 
     `COPY_PLUGINS_SRC`, `COPY_MODS_SRC`, `COPY_CONFIG_SRC` can each be set to a comma or newline delimited list of container directories to reference.
 
     For example, in a compose file:
-    
+
     ```yaml
         environment:
           # ...EULA, etc
@@ -68,7 +68,7 @@ These paths work well if you want to have a common set of modules in a separate 
           # matches up to volumes declared below
           COPY_PLUGINS_SRC: /plugins-common,/plugins-local
         volumes:
-          - mc-data:/data
+          - mc-data:/home/container
           # For example, reference a shared directory used by several projects
           - ../plugins-common:/plugins-common:ro
           # and add plugins unique to this project
@@ -81,16 +81,16 @@ These paths work well if you want to have a common set of modules in a separate 
 
 You can download/copy additional configuration files or other resources before the server starts by using the `APPLY_EXTRA_FILES` environment variable. This is useful for downloading configs that you want to patch or modify during the startup process.
 
-The format uses a `<` separator between the destination path and the source URL/path. The destination path is relative to the `/data` directory. If specifying a source path, it needs to be path mounted within the container.
+The format uses a `<` separator between the destination path and the source URL/path. The destination path is relative to the `/home/container` directory. If specifying a source path, it needs to be path mounted within the container.
 
 !!! example
 
     With `docker run`
-    
+
     ```
     -e APPLY_EXTRA_FILES=destination<source_url[,destination2<source_url2,...]
     ```
-    
+
     With a compose file:
     ```yaml
     environment:
@@ -177,7 +177,7 @@ The newline delimiting allows for compose file usage like:
 
     To temporarily disable processing of the `MODS` or `PLUGINS` list, then comment out the `MODS` or `PLUGINS` environment variable.
 
-## Mod/Plugin URL Listing File 
+## Mod/Plugin URL Listing File
 
 As an alternative to `MODS`/`PLUGINS`, the variable `MODS_FILE` or `PLUGINS_FILE` can be set with the container path or URL of a text file listing a mod/plugin URLs on each line. For example, the following
 
@@ -210,6 +210,6 @@ To use this option pass the environment variable `REMOVE_OLD_MODS=TRUE`, such as
 docker run -d -e REMOVE_OLD_MODS=TRUE -e MODPACK=http://www.example.com/mods/modpack.zip ...
 ```
 
-!!! danger 
+!!! danger
 
     All content of the `mods` or `plugins` directory will be deleted before unpacking new content from the MODPACK or MODS.

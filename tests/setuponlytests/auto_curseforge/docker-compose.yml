@@ -1,6 +1,6 @@
 services:
   mc:
-    image: ${IMAGE_TO_TEST:-itzg/minecraft-server}
+    image: ${IMAGE_TO_TEST:-energypatrikhu/pterodactyl-minecraft-server}
     environment:
       EULA: "true"
       SETUP_ONLY: "TRUE"
@@ -9,5 +9,4 @@ services:
       CF_PAGE_URL: https://www.curseforge.com/minecraft/modpacks/the-pixelmon-modpack/files/5954570
       DEBUG: true
     volumes:
-      - ./data:/data
-
+      - ./home/container:/home/container

@@ -1,10 +1,10 @@
 services:
   minecraft:
-    image: ${IMAGE_TO_TEST:-itzg/minecraft-server}
+    image: ${IMAGE_TO_TEST:-energypatrikhu/pterodactyl-minecraft-server}
     ports:
       - "25565:25565"
     volumes:
-      - "mc:/data"
+      - "mc:/home/container"
     environment:
       EULA: "TRUE"
       TYPE: FABRIC
@@ -19,11 +19,11 @@ services:
       CF_API_KEY: ${CF_API_KEY}
       # YAML Heredoc, be sure to use '|-' this will remove the first newline and final new line.
       # This is versus '|' that will leaving with two empty strings at top and bottom.
-      RCON_CMDS_STARTUP:  |-
+      RCON_CMDS_STARTUP: |-
         /gamerule doFireTick false
         /team add New
         /team add Old
-        /chunky radius 1000
+        /chunky radius 988
         /chunky start
       RCON_CMDS_ON_CONNECT: |-
         /team join New @a[team=]
