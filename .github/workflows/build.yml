@@ -42,7 +42,7 @@ jobs:
             platforms: linux/amd64,linux/arm/v7,linux/arm64
           # JAVA 11
           - variant: java11
-            baseImage: eclipse-temurin:11-jre
+            baseImage: eclipse-temurin:11-jre-jammy
             platforms: linux/amd64,linux/arm/v7,linux/arm64
           # JAVA 8: NOTE: Unable to go past 8u312 because of Forge dependencies
           - variant: java8
