@@ -20,7 +20,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # NOTE: the "latest" variant is identified in the Docker meta step's 'latest' config
         variant:
           - java25
           - java21
@@ -28,32 +27,27 @@ jobs:
           - java11
           - java8
         include:
-        # JAVA 25
+          # JAVA 25
           - variant: java25
             baseImage: eclipse-temurin:25-jre
             platforms: linux/amd64,linux/arm64
-            mcVersion: latest
-        # JAVA 21:
+          # JAVA 21:
           - variant: java21
             baseImage: eclipse-temurin:21-jre
             platforms: linux/amd64,linux/arm64
-            mcVersion: latest
-        # JAVA 17:
+          # JAVA 17:
           - variant: java17
             # jammy doesn't work until minecraft updates to https://github.com/netty/netty/issues/12343
             baseImage: eclipse-temurin:17-jre-focal
             platforms: linux/amd64,linux/arm/v7,linux/arm64
-            mcVersion: 1.20.4
-        # JAVA 11
+          # JAVA 11
           - variant: java11
-            baseImage: adoptopenjdk:11-jre-hotspot
+            baseImage: eclipse-temurin:11-jre
             platforms: linux/amd64,linux/arm/v7,linux/arm64
-            mcVersion: 1.16.4
-        # JAVA 8: NOTE: Unable to go past 8u312 because of Forge dependencies
+          # JAVA 8: NOTE: Unable to go past 8u312 because of Forge dependencies
           - variant: java8
             baseImage: eclipse-temurin:8u312-b07-jre-focal
             platforms: linux/amd64,linux/arm/v7,linux/arm64
-            mcVersion: 1.12.2
             # Pin version for Java 8
             mcHelperVersion: 1.51.1
     env:
