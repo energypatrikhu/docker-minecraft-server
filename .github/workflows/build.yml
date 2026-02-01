@@ -13,7 +13,11 @@ on:
       - "notes/**"
       - "kustomize/**"
       - "eggs/**"
+      - "docker-compose.yml"
       - "images.json"
+      - "compose-docs.yml"
+      - "zensical.toml"
+      - ".readthedocs.yaml"
 
 jobs:
   build:
