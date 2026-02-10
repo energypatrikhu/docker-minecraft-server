@@ -1,6 +1,6 @@
 services:
   mc:
-    image: energypatrikhu/pterodactyl-minecraft-server
+    image: ghcr.io/energypatrikhu/pterodactyl-minecraft-server
     container_name: paper
     environment:
       EULA: "true"

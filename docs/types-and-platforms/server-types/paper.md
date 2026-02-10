@@ -65,6 +65,7 @@ A [Pufferfish](https://github.com/pufferfish-gg/Pufferfish) server, which is "a 
     The `VERSION` variable is used to select branch latest, 1.18, or 1.17. Use PUFFERFISH_BUILD to really select the SERVER VERSION number.
 
 Extra variables:
+
 - `PUFFERFISH_BUILD=lastSuccessfulBuild` : set a specific Pufferfish build to use. Example: selecting build 47 => 1.18.1, or build 50 => 1.18.2 etc
 - `FORCE_REDOWNLOAD=false` : set to true to force the located server jar to be re-downloaded
 - `USE_FLARE_FLAGS=false` : set to true to add appropriate flags for the built-in [Flare](https://blog.airplane.gg/flare) profiler
@@ -80,6 +81,7 @@ A [Purpur](https://purpurmc.org/) server, which is "a drop-in replacement for Pa
     The `VERSION` variable is used to lookup a build of Purpur to download
 
 Extra variables:
+
 - `PURPUR_BUILD=LATEST` : set a specific Purpur build to use
 - `FORCE_REDOWNLOAD=false` : set to true to force the located server jar to be re-downloaded
 - `USE_FLARE_FLAGS=false` : set to true to add appropriate flags for the built-in [Flare](https://blog.airplane.gg/flare) profiler
@@ -130,3 +132,22 @@ If you have attached a host directory to the `/home/container` volume, then you 
 ## Extra config
 
 - `SKIP_DOWNLOAD_DEFAULTS`: when set to "true" startup will entirely skip checking for default Paper/Bukkit/Spigot config files to download
+
+## Configuration Repositories
+
+You can automatically download optimized or custom configuration files (e.g., `bukkit.yml`, `spigot.yml`, `paper-global.yml`, `purpur.yml`) by setting a repository URL. The container will automatically append the Minecraft version to the URL (e.g., `<REPO_URL>/1.21.1/<FILE>`).
+
+| Server Type | Variable |
+| :--- | :--- |
+| Paper | `PAPER_CONFIG_REPO` |
+| Pufferfish | `PUFFERFISH_CONFIG_REPO` |
+| Purpur | `PURPUR_CONFIG_REPO` |
+
+### Server Properties
+
+You can also download a base `server.properties` file using `SERVER_PROPERTIES_REPO_URL`.
+
+- **Smart Mode**: If the URL does **not** end in `.properties`, the script treats it as a base URL and appends `/${VERSION}/server.properties` (matching the behavior of the config repos).
+- **Direct Mode**: If the URL ends in `.properties`, it downloads that specific file.
+
+**Note**: Environment variables (like `MOTD`, `DIFFICULTY`, `MAX_PLAYERS`) defined in your Docker configuration will **override** values in the downloaded `server.properties` file.
